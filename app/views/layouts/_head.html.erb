@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= @page_title || "Tempe12" %></title>
+	<meta charset="utf-8" />
+	<meta name="author" content="John Hutchinson" /> 
+	<meta name="description" content="" /> 
+	<meta name="DC.creator" content="John Hutchinson - http://www.johnhutch.com" /> 
+	<meta name="DC.subject" content="Standards-based web design" /> 
+	<meta name="viewport" content="width=960" /> 
+	<link rel="shortcut icon" type="image/ico" href="/favicon.ico" /> 
+  
+	<script type="text/javascript">if(top!=self){top.location.replace(self.location.href);}</script> 
+	<!--[if IE 6]><script type="text/javascript">try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}</script><![endif]--> 
+
+	<link href="/stylesheets/blueprint/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+	<link href="/stylesheets/blueprint/print.css" media="print" rel="stylesheet" type="text/css" /> 
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" type="text/css" href="/css/blueprint/ie.css" />
+	<![endif]--> 
+
+	<link rel="stylesheet" href="/stylesheets/theme.css" type="text/css" />
+		
+	<%= javascript_include_tag 'jquery.js' %>
+	<%= javascript_include_tag 'rails.js' %>
+	<%= csrf_meta_tag %>
+</head>
