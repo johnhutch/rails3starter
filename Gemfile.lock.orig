@@ -1,3 +1,4 @@
+<<<<<<< HEAD:Gemfile.lock
 GIT
   remote: git://github.com/plataformatec/devise.git
   revision: e4cae200f4a55a86774ba98a3182d4c9fb7b0436
@@ -7,6 +8,8 @@ GIT
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
 
+=======
+>>>>>>> 0cd7c6fa80f1e2ec06cb00059ab56523a8bb826c:Gemfile.lock
 GEM
   remote: http://rubygems.org/
   specs:
@@ -38,16 +41,26 @@ GEM
       activesupport (= 3.0.4)
     activesupport (3.0.4)
     arel (2.0.9)
+<<<<<<< HEAD:Gemfile.lock
+    bcrypt-ruby (2.1.4)
+=======
+>>>>>>> 0cd7c6fa80f1e2ec06cb00059ab56523a8bb826c:Gemfile.lock
     builder (2.1.2)
+<<<<<<< HEAD:Gemfile.lock
+=======
     capistrano (2.5.19)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
+>>>>>>> 0cd7c6fa80f1e2ec06cb00059ab56523a8bb826c:Gemfile.lock
     erubis (2.6.6)
       abstract (>= 1.0.0)
+<<<<<<< HEAD:Gemfile.lock
+=======
     highline (1.5.0)
+>>>>>>> 0cd7c6fa80f1e2ec06cb00059ab56523a8bb826c:Gemfile.lock
     i18n (0.5.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -55,6 +68,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+<<<<<<< HEAD:Gemfile.lock
+    orm_adapter (0.0.4)
+=======
     mysql2 (0.2.6)
     net-scp (1.0.1)
       net-ssh (>= 1.99.1)
@@ -63,6 +79,7 @@ GEM
     net-ssh (2.1.0)
     net-ssh-gateway (1.0.0)
       net-ssh (>= 1.99.1)
+>>>>>>> 0cd7c6fa80f1e2ec06cb00059ab56523a8bb826c:Gemfile.lock
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -88,15 +105,21 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.24)
+<<<<<<< HEAD:Gemfile.lock
     warden (1.0.3)
       rack (>= 1.0.0)
+=======
+>>>>>>> 0cd7c6fa80f1e2ec06cb00059ab56523a8bb826c:Gemfile.lock
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD:Gemfile.lock
+  devise!
+=======
   capistrano
   mysql2
-  devise!
+>>>>>>> 0cd7c6fa80f1e2ec06cb00059ab56523a8bb826c:Gemfile.lock
   rails (= 3.0.4)
   sqlite3

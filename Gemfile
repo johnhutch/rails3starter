@@ -8,6 +8,8 @@ gem 'rails', '3.0.4'
 gem 'sqlite3'
 gem 'mysql2'
 
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
