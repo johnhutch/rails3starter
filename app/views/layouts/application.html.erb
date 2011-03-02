@@ -1,8 +1,14 @@
 <%= render :partial => 'layouts/head' %>
 
 <body id="<%= action_name %>" class="<%= controller_name %>">
-
-<%= yield %>
-
+	<%= render 'layouts/header' %>
+	
+	<div id="content" class="container">
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+		
+		<%= yield %>
+	</div>
 </body>
 </html>

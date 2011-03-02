@@ -1,5 +1,5 @@
-body {background: #000 url(images/bg.jpg) 0% 50% repeat-y;}
-.container {background-color: white;}
+body {background: #000 url(images/bg.jpg) 50% 0% repeat-y;}
+header {background: transparent url(images/burst.png) 50% 0% no-repeat; height: 60px; padding: 150px 0 0 0;}
+header h1 {background: transparent url(images/logo.png) top left no-repeat; height: 64px; width: 902px; overflow: hidden; text-indent: -9999px;}
 
-
-#header {background: transparent url(images/burst.png) 0 50% no-repeat;}
+#content {background-color: white;}
