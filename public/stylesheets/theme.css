@@ -1,5 +1,20 @@
 body {background: #000 url(images/bg.jpg) top left;}
+
 header {background: transparent url(images/burst.png) 50% 0% no-repeat; height: 60px; padding: 150px 0 0 0;}
 header h1 {background: transparent url(images/logo.png) top left no-repeat; height: 64px; width: 902px; overflow: hidden; text-indent: -9999px;}
 
-#content {background-color: white;}
+nav {background-color: #000; margin: 0 10px; padding: 10px 0 9px 0; }
+nav ul {list-style-type: none; padding: 0; margin: 0;}
+nav ul li {float: left; }
+nav ul li a {display: block; padding: 0 15px; color: #c08625; border-right: 1px solid #c08625; text-transform: uppercase; text-decoration: none; line-height: 1em;}
+nav ul li:last-child a {border-right-width: 0;}
+
+
+#content {background-color: white; padding: 10px; width: 880px; margin: 0 25px;}
+
+
+footer {width: 878px; margin: 0 25px; padding: 10px; border: 1px solid #666; border-top-width: 0; background-color: #000;}
+footer ul {list-style-type: none; padding: 0; margin: 0; }
+footer ul li {float: left; margin: 0; padding: 0; width: 164px;}
+footer dt {color: #c08625; font-weight: bold; text-transform: uppercase;}
+footer dd a {color: #90002b; text-decoration: none;}

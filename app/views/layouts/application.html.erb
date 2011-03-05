@@ -3,12 +3,102 @@
 <body id="<%= action_name %>" class="<%= controller_name %>">
 	<%= render 'layouts/header' %>
 	
-	<div id="content" class="container">
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, :id => "flash_#{name}" %>
-		<% end %>
+	<div class="container">
+		<nav class="clearfix">
+			<ul id="nav">
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+				<li><a href="">Link</a></li>
+			</ul>
+		</nav>
+		<section id="content">
+			<% flash.each do |name, msg| %>
+				<%= content_tag :div, msg, :id => "flash_#{name}" %>
+			<% end %>
 		
-		<%= yield %>
+			<%= yield %>
+		</section>
+		<footer class="clearfix">
+			<ul>
+				<li class="column">
+					<dl>
+						<dt>Friends of the 12</dt>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+					</dl>
+				</li>
+				<li class="column">
+					<dl>
+						<dt>Hot Links</dt>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+					</dl>
+				</li>
+				<li class="column">
+					<dl>
+						<dt>Our Friends</dt>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+					</dl>
+				</li>
+				<li class="column">
+					<dl>
+						<dt>Follow Us</dt>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+					</dl>
+				</li>
+				<li class="column">
+					<dl>
+						<dt>Low-Down</dt>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+						<dd><a href="">Lorem Ipsum</a></dd>
+					</dl>
+				</li>
+			</ul>
+		</footer>
 	</div>
 </body>
 </html>
