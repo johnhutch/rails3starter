@@ -6,4 +6,8 @@ class ContentController < ApplicationController
   def contact
   end
   
+  def admin
+    @posts = Post.all
+  end
+  
 end
