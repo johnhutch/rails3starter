@@ -9,8 +9,8 @@ Tempe12::Application.routes.draw do
   resources :users
   
   # content routes
-  match "/admin" => "content#admin", :as => :admin
-  match "/contact" => "content#contact", :as => :contact
+  match "/admin" => "contents#admin", :as => :admin
+  match "/contact" => "contents#contact", :as => :contact
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
