@@ -7,8 +7,8 @@ class Ability
     if user.role? :admin
       can :manage, :all
     else
-      can [:front, :contact, :read], :content
       can :read, :all
+      can [:front, :contact], Content
     end
 
     # [:read, :create, :update, :destroy], [Model, Model, Model]
