@@ -1,0 +1,28 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :title, "Post Title" %>
+    <%= f.text_field :title %>
+		
+    <%= f.label :body, "Post Body" %>
+    <%= f.text_area :body %>
+		
+    	
+	  <%= f.check_box :published %>
+		<%= f.label :published, 'Publish this post?' %>
+		<small>Leave this unchecked if you want to return later to finalize this post before publishing.</small>
+
+    <%= f.hidden_field :published_at %>
+
+    <%= f.submit :value => raw("Create Post &rarr;"), :class => "submit" %>
+<% end %>

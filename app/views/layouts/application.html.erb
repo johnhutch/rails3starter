@@ -5,13 +5,13 @@
 	
 	<div class="container">
 		<%= render :partial => 'layouts/nav' %>
-
-		<div id="main" class="clearfix">
-			<section id="content">
-				<% flash.each do |name, msg| %>
-					<%= content_tag :div, msg, :id => "flash_#{name}" %>
-				<% end %>
 		
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+		
+		<div id="main" class="clearfix">			
+			<section id="content">		
 				<%= yield %>
 			</section>
 			

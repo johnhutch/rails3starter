@@ -1,5 +1,5 @@
-body {background-color: #000; background: url(images/ribbon_white_blur.png) 50% 150px no-repeat, url(images/bg.jpg) top left repeat}
-
+/**** TEMPLATE STYLES ****/
+body {background-color: #000; color: #555; background: url(images/ribbon_white_blur.png) 50% 150px no-repeat, url(images/bg.jpg) top left repeat}
 
 header {background: transparent url(images/burst.png) 50% 0% no-repeat; height: 60px; padding: 150px 0 0 0;}
 header h1 {margin: 0; padding: 0;}
@@ -12,7 +12,6 @@ nav ul li a {display: block; padding: 0 15px; color: #c08625; font-size: .9em; b
 nav ul li.last-left a {border-right-width: 0;}
 nav ul li.right a {border-right-width: 0; border-left: 1px solid #c08625; font-size: 1em; padding: 0 5px; font-weight: bold; letter-spacing: 1px;}
 nav ul li.last-right a {border-left-width: 0;}
-
 
 #main {background-color: white; padding: 10px; width: 878px; margin: 0 25px; border: 1px solid #000; border-top-width: 0;}
 
@@ -35,3 +34,20 @@ footer .left {float: left;}
 footer .right {float:right; border-left: 1px solid #fff;}
 footer li.right:last-child {border-left-width: 0;}
 footer a {color: #ccc; text-decoration: none; display: block;padding: 0 10px; line-height: 1em; font-size: .9em;}
+
+#flash_notice {width: 878px; margin: 0 25px; padding: 4px 10px; border: 1px solid #000; border-top-width: 0; background-color: #555; color: #222; font-weight: bold; position: relative; z-index: 20;
+	background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0.88,rgb(255,229,176)),color-stop(0.15,rgb(227,200,145)));
+	background-image:-moz-linear-gradient(center bottom,rgb(255,229,176) 88%,rgb(227,200,145) 15%);
+	-webkit-box-shadow: 0px 2px 2px #666; 
+	}
+
+
+/**** FORMS ****/
+label {display: block; font-size: 1.2em;}
+input[type="text"], input[type="password"], input.text, input.title, textarea, select {margin-bottom: 1em; display: block;}
+input#post_published {clear: both; width: 20px; float: left; margin-top: 6px;}
+input[type="submit"], input.submit { display: block; text-transform: uppercase; padding: 8px 0; margin: 1em 0; line-height: 1em; text-align: center; width: 200px; color: white; background-color: #120d03; border: 1px solid #f8af30; font-weight: bold;
+	background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0.03,rgb(26,18,5)),color-stop(0.68,rgb(90,88,88)),color-stop(1,rgb(18,13,3)));
+	background-image:-moz-linear-gradient(center bottom,rgb(26,18,5) 3%,rgb(90,88,88) 68%,rgb(18,13,3) 100%);
+	}
+
