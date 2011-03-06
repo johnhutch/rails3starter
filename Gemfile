@@ -5,8 +5,11 @@ gem 'rails', '3.0.4'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'mysql2'
+
+gem 'oa-oauth', :require => 'omniauth/oauth', :git => 'git://github.com/intridea/omniauth.git'
+
+gem 'cancan'
 
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 

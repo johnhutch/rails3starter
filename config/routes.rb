@@ -1,5 +1,7 @@
 Tempe12::Application.routes.draw do
 
+  resources :contents
+
   devise_for :users
   
   resources :users
