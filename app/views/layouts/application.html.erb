@@ -3,14 +3,25 @@
 <body id="<%= action_name %>" class="<%= controller_name %>">
 	<%= render 'layouts/header' %>
 	
-	<%= render 'layouts/nav' %>
-	
-	<div id="content" class="container">
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, :id => "flash_#{name}" %>
-		<% end %>
+	<div class="container">
+		<%= render :partial => 'layouts/nav' %>
+
+		<div id="main" class="clearfix">
+			<section id="content">
+				<% flash.each do |name, msg| %>
+					<%= content_tag :div, msg, :id => "flash_#{name}" %>
+				<% end %>
 		
-		<%= yield %>
+				<%= yield %>
+			</section>
+			
+			<section id="sidebar">
+				<%= (sidebar = yield(:sidebar)).present? ? sidebar : render("layouts/sidebar") %>
+			</section>
+		</div>
+		<%= render :partial => 'layouts/bottom_links' %>
+
+		<%= render :partial => 'layouts/footer' %>
 	</div>
 </body>
 </html>

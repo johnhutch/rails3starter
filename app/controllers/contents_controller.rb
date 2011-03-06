@@ -1,13 +1,10 @@
 class ContentsController < ApplicationController
-  # GET /contents
-  # GET /contents.xml
-  def index
-    @contents = Content.all
+authorize_resource
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @contents }
-    end
+  def front
+  end
+  
+  def contact
   end
 
   # GET /contents/1

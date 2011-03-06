@@ -17,7 +17,7 @@ class Ability
     elsif user.role?    :twelve
       can :read, :all
     else
-      can :read, :all
+      can [:read, :front, :contact], :all
     end
 
     # [:read, :create, :update, :destroy], [Model, Model, Model]
