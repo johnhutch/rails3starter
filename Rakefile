@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Tempe12::Application.load_tasks
+Tinder::Application.load_tasks

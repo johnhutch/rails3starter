@@ -6,8 +6,8 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: tempe12
+  database: db_dev
 
 test:
   <<: *defaults
-  database: tempe12_test
+  database: db_test

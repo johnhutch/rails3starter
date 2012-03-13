@@ -1,4 +1,4 @@
-Tempe12::Application.routes.draw do
+Tinder::Application.routes.draw do
 
   resources :posts
 

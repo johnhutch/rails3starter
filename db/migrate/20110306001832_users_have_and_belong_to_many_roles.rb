@@ -4,7 +4,7 @@ class UsersHaveAndBelongToManyRoles < ActiveRecord::Migration
       t.references :role, :user
     end
     
-    # Add the Tempe12 user roles to the database table
+    # Add the Tinder user roles to the database table
     admin_role =      Role.create(:name => "admin")
     editor_role =     Role.create(:name => "editor")
     commenter_role =  Role.create(:name => "commenter")
