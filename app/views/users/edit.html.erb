@@ -1,0 +1,33 @@
+<h2>Editing <%= @user.name %></h2>
+
+<h3>Roles assigned:</h3>
+<ul class="role_list clearfix" id="assigned_roles"><%= render :partial => 'role', :collection => @user.roles %></ul>
+ 
+<h3>Roles available:</h3>
+<ul class="role_list clearfix" id="available_roles"><%= render :partial => 'role', :collection => (@all_roles - @user.roles) %></ul>
+
+<h3>Profile</h3>
+<%= form_for(@user, :html => { :method => :put, :multipart => true }) do |f| %>
+
+<h3>Account Info</h3>
+	<div class="field">
+	  <%= f.label :name, 'Name:' %>
+	  <%= f.text_field :name%>
+	</div>
+	
+	<div class="field">
+	  <%= f.label :email, 'E-mail:' %>
+		<%= @user.email %>
+	</div>
+	
+	  <div class="actions">
+	    <%= f.submit :disable_with => "Please wait..." %>
+	  </div>
+	<% end %>
+
+	<div id="pleasewait" style="display: none;">
+		<p>Please wait while we process your submission.<br />
+			<small>This could take a minute or two.<br />Please do not close your browser or refresh the page.</small>
+			<img src="/images/ajax-loader.gif" alt="an ajax loader gif" /></p>
+	</div>
+

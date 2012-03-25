@@ -3,20 +3,19 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+  <div class="field"><%= f.label :name %>
+  <%= f.text_field :name %></div>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+  <div class="field"><%= f.label :email %>
+  <%= f.email_field :email %></div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+  <div class="field"><%= f.label :password %>
+  <%= f.password_field :password %></div>
 
-  <p><%= f.submit "Sign up" %></p>
+  <div class="field"><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %></div>
+
+  <div class="field submit"><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
-
-<% content_for :sidebar do %>
-Helper content for sign up goes here.
-<% end %>

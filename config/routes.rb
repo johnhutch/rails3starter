@@ -1,17 +1,17 @@
 Tinder::Application.routes.draw do
 
   resources :posts
-
   resources :contents
-
-  devise_for :users
   
+  devise_for :users
   resources :users
   
   # content routes
   match "/admin" => "contents#admin", :as => :admin
   match "/contact" => "contents#contact", :as => :contact
-  
+
+  root :to => "contents#front"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -61,7 +61,7 @@ Tinder::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "contents#front"
+  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

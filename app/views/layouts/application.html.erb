@@ -1,27 +1,89 @@
-<%= render :partial => 'layouts/head' %>
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Tinder</title>
+  <meta name="description" content="A Rails 3.1.3 starter">
+  <meta name="author" content="John Hutchinson">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <%= stylesheet_link_tag    "application" %>
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="/modernizr-2.0.6.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
 
 <body id="<%= action_name %>" class="<%= controller_name %>">
-	<%= render 'layouts/header' %>
+  <div id="container">
+    <header><h1><a href="/">Tinder</a></h1></header>
 	
-	<div class="container">
-		<%= render :partial => 'layouts/nav' %>
-		
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, :id => "flash_#{name}" %>
-		<% end %>
-		
-		<div id="main" class="clearfix">			
-			<section id="content">		
-				<%= yield %>
-			</section>
-			
-			<section id="sidebar">
-				<%= (sidebar = yield(:sidebar)).present? ? sidebar : render("layouts/sidebar") %>
-			</section>
-		</div>
-		<%= render :partial => 'layouts/bottom_links' %>
+    <section id="usernav">
+        <% if user_signed_in? %>
+          Signed in as <%= current_user.name %>. 
+          <%= link_to "Edit Profile", edit_user_registration_path %> | 
+          <%= link_to "Sign out", destroy_user_session_path, :method => "delete" %><br />
+          <%= link_to "New Gallery", new_gallery_path if current_user.role? :uploader %>
+          <%= link_to "New Blog Post", new_post_path if current_user.role? :author %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> or
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+    </section>
+    <div id="main" role="main">
+        <%= notice_block %>
+        <%= alert_block %>
+        <%= yield %>
+    </div>
+    <footer>
+      <ul>
+          <li class="left"><a href="/">&copy; Tinder <%= Time.now.year %> All Right Reserved.</a></li>
+          <li class="right"><a href="">Privacy Policy</a></li>
+          <li class="right"><a href="">Terms and Conditions</a></li>
+      </ul>
+    </footer>
+  </div> <!--! end of #container -->
+  
+  <!-- JavaScript at the bottom for fast page loading -->
+  <%= javascript_include_tag "application" %>
+  <%= yield :scripts %>
+    
+  <!-- Change UA-XXXXX-X to be your site's ID -->
+  <script>
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
 
-		<%= render :partial => 'layouts/footer' %>
-	</div>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
 </body>
 </html>
