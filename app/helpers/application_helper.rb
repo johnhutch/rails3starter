@@ -1,7 +1,9 @@
 module ApplicationHelper
+ 
   def markdown(text)
-      options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-      Redcarpet.new(text, *options).to_html.html_safe
+      rc = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true, :filter_html => true, :hard_wrap => true)
+      #options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+      rc.render(text).html_safe
   end
 
   def notice_block

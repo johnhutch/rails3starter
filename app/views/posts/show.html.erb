@@ -1,5 +1,15 @@
-<h2><%= @post.title %></h2>
+<article id="post">
+  <h3><%= @post.title %></h3>
+  <div id="byline">Posted by <%= @post.user.email %></div>
+  <%= markdown @post.body %>
+</article>
 
-<section id="post_body" class="body">
-	<%= @post.body %>
+<section id="comments">
+  <h3>Comments</h3>
+	<% if @post.comments.blank? %>
+		<p>This post has no comments</p>
+	<% end %>
+  <%= render :partial => 'layouts/comment', :collection => @post.comments %>
+  <%= render :partial => 'layouts/new_comment', :locals => {:type => "post"} %> 
 </section>
+

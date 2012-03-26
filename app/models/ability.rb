@@ -2,21 +2,38 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new # If not logged in, user's role is "guest" by default
+    user ||= User.new # guest user (not logged in)
     
-    if user.role? :admin
-      can :manage, :all
-    else
-      can :read, :all
-      can [:front, :contact], Content
-    end
+    if user.role?     :admin
+                        can :manage, :all
 
-    # [:read, :create, :update, :destroy], [Model, Model, Model]
+    elsif user.role? :author
+                        can :read, :all
+                        cannot :manage, :all
+                        can :create, [Comment, Post]
+                        can :update, Post do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Post do |p|
+                          p.try(:user) == user
+                        end
     
-    # :admin, :editor, :commenter, :sponsor, :hopeful, :twelve, guest
+    elsif user.role? :commenter
+                        can :read, :all
+                        cannot :manage, :all
+                        can :create, Comment
+                        can :update, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can :destroy, Comment do |c|
+                          c.try(:user) == user
+                        end
     
-    # can :update, Comment do |comment|  
-    #         comment.try(:user) == user
-    
+    else              # guest
+                        can :read, :all
+                        cannot :manage, :all
+                        can :show, [Post]
+                        can :front, Content
+    end
   end
 end

@@ -1,0 +1,17 @@
+<% if user_signed_in? && (current_user.role? :commenter) %>
+	<h4>Comment on this <%= type %></h4>
+	<%= form_for Comment.new, :url => parent_url_string do |f| %>
+		<%= f.text_area :body %>
+		<p><%= f.submit 'Post my comment' %></p>
+	<% end %>
+<% else %>
+  <% if user_signed_in? %>
+    <p>Commenting is turned off.</p>
+  <% else %>
+	<h4>You must be logged in to comment</h4>
+    <%= link_to "Sign in", new_user_session_path %>
+	or 
+    <%= link_to 'sign up', new_user_registration_path %> to comment.</p>
+  <% end %>
+<% end %>
+

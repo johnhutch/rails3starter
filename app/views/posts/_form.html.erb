@@ -11,18 +11,15 @@
     </div>
   <% end %>
 
-    <%= f.label :title, "Post Title" %>
+  <div class="field">
+    <%= f.label :title %><br />
     <%= f.text_field :title %>
-		
-    <%= f.label :body, "Post Body" %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
     <%= f.text_area :body %>
-		
-    	
-	  <%= f.check_box :published %>
-		<%= f.label :published, 'Publish this post?' %>
-		<small>Leave this unchecked if you want to return later to finalize this post before publishing.</small>
-
-    <%= f.hidden_field :published_at %>
-
-    <%= f.submit :value => raw("Create Post &rarr;"), :class => "submit" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

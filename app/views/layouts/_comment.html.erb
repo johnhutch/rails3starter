@@ -1,0 +1,4 @@
+<div class="comment <%= cycle("even", "odd") %>">
+	<div class="byline">From <%= link_to comment.user.name, comment.user %> &bull; <%= time_ago_in_words(comment.created_at) %> ago</div>
+	<div class="body"><%= comment.body %></div>
+</div>

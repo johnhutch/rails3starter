@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # Relationship for Role model
   has_and_belongs_to_many :roles
+  has_many :comments
+  has_many :posts
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable, :timeoutable and :activatable

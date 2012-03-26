@@ -208,12 +208,12 @@ td { vertical-align: top; }
 
 
 /* ==|== primary styles =====================================================
-   Author: 
+   Author: John Hutchinson
    ========================================================================== */
 
-body {   background: #6a7176;}
-header h1 {text-shadow: white 0 1px 0;}
-#container {background-color: white; padding: 20px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+body { background: #6a7176; }
+header h1 { text-shadow: white 0 1px 0; }
+#container { background-color: white; padding: 20px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 
 
