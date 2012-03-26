@@ -44,7 +44,6 @@
           Signed in as <%= current_user.name %>. 
           <%= link_to "Edit Profile", edit_user_registration_path %> | 
           <%= link_to "Sign out", destroy_user_session_path, :method => "delete" %><br />
-          <%= link_to "New Gallery", new_gallery_path if current_user.role? :uploader %>
           <%= link_to "New Blog Post", new_post_path if current_user.role? :author %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path %> or

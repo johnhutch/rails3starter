@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :confirmed_at
+  attr_accessible :name, :email, :password, :password_confirmation, :confirmed_at, :remember_me
 
   # Accessor function for retrieving a user's roles
   def role?(role)

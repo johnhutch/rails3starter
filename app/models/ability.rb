@@ -17,6 +17,8 @@ class Ability
                         can :destroy, Post do |p|
                           p.try(:user) == user
                         end
+                        can :show, [Post]
+                        can :front, Content
     
     elsif user.role? :commenter
                         can :read, :all
@@ -28,6 +30,8 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
+                        can :show, [Post]
+                        can :front, Content
     
     else              # guest
                         can :read, :all
