@@ -19,4 +19,25 @@ describe "Users" do
       page.should have_content("Signed in successfully")
     end
   end
+
+  describe "GET /users/sign_up" do
+    it "displays the signup form" do
+      visit new_user_registration_path
+      page.should have_content("Sign up")
+    end
+  end
+
+  describe "POST /users/" do 
+    it "signs a user up" do
+      visit new_user_registration_path
+      page.should have_content("Sign up")
+      fill_in "Email", :with => "test@email.com"
+      fill_in "Password", :with => "secret"
+      fill_in "Confirm Password", :with => "secret"
+      fill_in "Name", :with => "New user!"
+      click_button "Sign up"
+      page.should have_content("Signed in as")
+      page.should have_content("Welcome! You have signed up successfully.")
+    end
+  end
 end
