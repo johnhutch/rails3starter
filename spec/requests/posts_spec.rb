@@ -12,8 +12,24 @@ describe "Posts" do
   describe "GET /posts" do
     it "displays posts" do
       Post.create!(:title => "A Sample post title", :body => "This is what the post says")
+      Post.create!(:title => "Another post title", :body => "This is what the second post says")
+      Post.create!(:title => "A third post title", :body => "This is what the third post says")
       visit posts_path
       page.should have_content("A Sample post title")
+      page.should have_content("Another post title")
+      page.should have_content("A third post title")
+      page.should have_content("This is what the third post says")
+    end
+  end
+
+  describe "GET /posts/:id" do
+    it "displays a single post" do
+      author = FactoryGirl.create(:author)
+      post = Post.create!(:title => "A single post title", :body => "This is what the post says", :user => author)
+
+      visit post_path(post)
+      page.should have_content("A single post title")
+      page.should have_content("This is what the post says")
     end
   end
 

@@ -16,12 +16,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     
     respond_to do |format|
-#      if @post.published
-          format.html # show.html.erb
-          format.xml  { render :xml => @post }
- #     else 
-  #        format.html { redirect_to('/', :notice => 'You tried to view an unpublished post you do not have access to.') }
-   #   end
+      format.html # show.html.erb
+      format.xml  { render :xml => @post }
     end
   end
 
