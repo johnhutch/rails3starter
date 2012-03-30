@@ -6,8 +6,8 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: db_dev
+  database: tinder_dev
 
 test:
   <<: *defaults
-  database: db_test
+  database: tinder_test
