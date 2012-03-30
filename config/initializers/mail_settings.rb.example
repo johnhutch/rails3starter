@@ -8,6 +8,7 @@ Tinder::Application.configure do
       :domain => "localhost.localdomain",
       :authentication => :plain,
       :user_name => "me@gmail.com",
-      :password => "mypassword"
+      :password => "mypassword",
+      :enable_starttls_auto => true 
     }
 end

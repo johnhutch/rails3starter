@@ -4,22 +4,22 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.email_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirm Password" %><br />
+    <%= f.label :password_confirmation, "Confirm Password" %>
     <%= f.password_field :password_confirmation %>
   </div>
 
