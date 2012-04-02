@@ -6,5 +6,6 @@ en:
 
   buttons:
     reset_password: "Send me reset password instructions"
+    change_password: "Change my password"
   links:
     forgot_password: "Forgot my password"
