@@ -34,9 +34,8 @@ class Ability
                         can :front, Content
     
     else              # guest
-                        can :read, :all
                         cannot :manage, :all
-                        can :show, [Post]
+                        can [:show, :index], Post 
                         can :front, Content
     end
   end

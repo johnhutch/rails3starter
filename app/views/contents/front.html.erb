@@ -1,1 +1,10 @@
 <h2>This is the front page</h2>
+
+<section id="blog">
+  <% for post in Post.all do %>
+    <article id="post_#{post.id}" class="post">
+      <h3><%= post.title %></h3>
+      <%= markdown post.body %>
+    </article>
+  <% end %>
+</section>

@@ -5,7 +5,12 @@ en:
   site_name: "Tinder"
 
   buttons:
-    reset_password: "Send me reset password instructions"
-    change_password: "Change my password"
+    reset_password:         "Send me reset password instructions"
+    change_password:        "Change my password"
+    create_post:            "Create Post"
+    edit_post:              "Update Post"
+  flash:
+    post_created:           "Post was successfully created."
+    post_updated:           "Post was successfully updated."
   links:
-    forgot_password: "Forgot my password"
+    forgot_password:        "Forgot my password"
