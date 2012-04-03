@@ -1,13 +1,5 @@
 require 'spec_helper'
 
-def login(user)
-  visit new_user_session_path
-  fill_in "Email", :with => user.email
-  fill_in "Password", :with => user.password
-  click_button "Sign in"
-  page.should have_content("Signed in successfully")
-end
-
 describe "Posts" do
   let(:author) {FactoryGirl.create(:author)}
   let(:author2) {FactoryGirl.create(:author)}
@@ -96,14 +88,9 @@ describe "Posts" do
     end
   end
   
-#  describe "destroy /post/:id" do
-#    it "should allow the author to destroy post" do
-#      login(author)
-#
-#      delete post_path(post)
-#      lambda {
-#        visit post_path(post)
-#      }.should raise_exception(ActiveRecord::RecordNotFound)
-#    end
-#  end
+  describe "destroy abilities" do
+    it "should allow the author to destroy post" do
+
+    end
+  end
 end

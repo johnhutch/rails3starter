@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'cancan/matchers'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -43,3 +44,12 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+def login(user)
+  visit new_user_session_path
+  fill_in "Email", :with => user.email
+  fill_in "Password", :with => user.password
+  click_button "Sign in"
+  page.should have_content("Signed in successfully")
+end
+
