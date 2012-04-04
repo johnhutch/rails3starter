@@ -88,9 +88,16 @@ describe "Posts" do
     end
   end
   
+  let(:auth_ability) { Ability.new(author) }
+  let(:auth2_ability) { Ability.new(author2) }
+
   describe "destroy abilities" do
     it "should allow the author to destroy post" do
+      auth_ability.should be_able_to(:destroy, post)
+    end
 
+    it "should now allow another author to destroy post" do
+      auth2_ability.should_not be_able_to(:destroy, post)
     end
   end
 end
