@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'cancan/matchers'
+require "paperclip/matchers" 
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,6 +30,7 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
+  config.include(Paperclip)
   config.include(MailerMacros)
   config.before(:each) { reset_email }
   
@@ -52,4 +54,3 @@ def login(user)
   click_button "Sign in"
   page.should have_content("Signed in successfully")
 end
-

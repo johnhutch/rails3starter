@@ -1,4 +1,3 @@
-# This will guess the User class
 FactoryGirl.define do
   factory :role do
     factory :admin_role do
@@ -42,5 +41,15 @@ FactoryGirl.define do
     title
     body
   end
-
+ 
+  sequence(:caption) { |n| "This is the photo caption #{n}"}
+ 
+  factory :photo do
+    title
+    caption
+    image { Rack::Test::UploadedFile.new("#{Rails.root}/spec/samples/hutchhead.png", 'image/png', true) }
+    
+    #broken lazy fixture as of paperclip ver. 3.0.1 -- try again after an update
+    #image { paperclip_fixture("photo", "spec/samples/hutchhead.png", "image/png") }
+  end
 end

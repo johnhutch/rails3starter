@@ -18,7 +18,7 @@ gem 'devise'
 
 gem 'redcarpet'
 gem 'formalize-rails'
-gem 'paperclip'
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 group :development, :test do
   gem 'sqlite3'

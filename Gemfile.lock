@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 05cda02181c986614563741a9639d26985d32334
+  specs:
+    paperclip (3.0.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -105,12 +116,6 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.5.2)
     orm_adapter (0.0.6)
-    paperclip (3.0.1)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (>= 0.0.2)
-      mime-types
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -199,7 +204,7 @@ DEPENDENCIES
   json
   launchy
   mysql2
-  paperclip
+  paperclip!
   rails (= 3.2.2)
   rb-fsevent
   redcarpet
