@@ -18,7 +18,7 @@ gem 'devise'
 
 gem 'redcarpet'
 gem 'formalize-rails'
-
+gem 'paperclip'
 
 group :development, :test do
   gem 'sqlite3'
