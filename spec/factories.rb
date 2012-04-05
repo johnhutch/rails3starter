@@ -11,6 +11,10 @@ FactoryGirl.define do
     factory :commenter_role do
       name 'commenter'
     end
+
+    factory :uploaer_role do
+      name 'uploader'
+    end
   end
 
   sequence(:name) { |n| "Joe User #{n}"}
@@ -31,6 +35,12 @@ FactoryGirl.define do
       name
       email
       after_create { |user| user.roles << FactoryGirl.create(:author_role) }
+    end
+
+    factory :uploader, :class => User do
+      name
+      email
+      after_create { |user| user.roles << FactoryGirl.create(:uploader_role) }
     end
   end
   
