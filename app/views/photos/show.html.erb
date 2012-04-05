@@ -1,25 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @photo.title %></h2>
 
-<p>
-  <b>Caption:</b>
-  <%= @photo.caption %>
-</p>
+<a href="<%= @photo.image.url(:medium) %>"><%= image_tag @photo.image.url(:thumb) %></a>
 
-<p>
-  <b>Title:</b>
-  <%= @photo.title %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @photo.user_id %>
-</p>
-
-<p>
-  <b>Owner:</b>
-  <%= @photo.owner_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<%= markdown @photo.caption %>
