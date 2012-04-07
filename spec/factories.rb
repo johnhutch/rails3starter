@@ -12,7 +12,7 @@ FactoryGirl.define do
       name 'commenter'
     end
 
-    factory :uploaer_role do
+    factory :uploader_role do
       name 'uploader'
     end
   end

@@ -1,29 +1,8 @@
-<h1>Listing photos</h1>
+<h2>Photos</h2>
 
-<table>
-  <tr>
-    <th>Caption</th>
-    <th>Title</th>
-    <th>User</th>
-    <th>Owner</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul id="mosaic">
 <% @photos.each do |photo| %>
-  <tr>
-    <td><%= photo.caption %></td>
-    <td><%= photo.title %></td>
-    <td><%= photo.user_id %></td>
-    <td><%= photo.owner_id %></td>
-    <td><%= link_to 'Show', photo %></td>
-    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-    <td><%= link_to 'Destroy', photo, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <li><a href="<%= photo.image.url(:medium) %>"><%= image_tag photo.image.url(:thumb), :alt => photo.title %></a></li>
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New Photo', new_photo_path %>

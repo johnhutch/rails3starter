@@ -49,6 +49,7 @@ class Ability
     else              # guest
                         cannot :manage, :all
                         can [:show, :index], Post 
+                        can [:show, :index], Photo
                         can :front, Content
     end
   end
