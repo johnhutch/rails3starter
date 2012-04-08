@@ -62,4 +62,9 @@ FactoryGirl.define do
     #broken lazy fixture as of paperclip ver. 3.0.1 -- try again after an update
     #image { paperclip_fixture("photo", "spec/samples/hutchhead.png", "image/png") }
   end
+  factory :photo2 do
+    title
+    caption
+    image { Rack::Test::UploadedFile.new("#{Rails.root}/spec/samples/mark.png", 'image/png', true) }
+  end
 end

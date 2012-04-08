@@ -9,8 +9,12 @@ en:
     change_password:        "Change my password"
     create_post:            "Create Post"
     edit_post:              "Update Post"
+    create_photo:           "Create Photo"
+    edit_photo:             "Update Photo"
   flash:
     post_created:           "Post was successfully created."
     post_updated:           "Post was successfully updated."
+    photo_created:          "Photo was successfully created."
+    photo_updated:          "Photo was successfully updated."
   links:
     forgot_password:        "Forgot my password"
