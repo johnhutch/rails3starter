@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, :html => { :multipart => true }) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -15,11 +15,30 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+  
+  <%= f.fields_for :photos do |p| %>
+    <fieldset class="photo">
+      <h3>Photo:</h3>
+      <div class="field">
+        <%= p.label :title, "Photo Title" %>
+        <%= p.text_field :title %>
+      </div>
+      <div class="field">
+        <%= p.label :image, "File Upload" %>
+        <%= p.file_field :image %>
+      </div>
+      <div class="field">
+        <%= p.label :caption, "Photo Caption" %>
+        <%= p.text_field :caption %>
+      </div>
+    </fieldset>
+  <% end %>
+
   <div class="field">
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :disable_with => "Saving..." %>
   </div>
 <% end %>

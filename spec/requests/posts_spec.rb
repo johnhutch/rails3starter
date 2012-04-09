@@ -5,9 +5,11 @@ describe "Posts" do
   let(:author2) {FactoryGirl.create(:author)}
   let(:user) {FactoryGirl.create(:user)}
   let(:admin) {FactoryGirl.create(:admin)}
+  let(:uploader) {FactoryGirl.create(:uploader)}
   let(:post) { FactoryGirl.create(:post, user: author) }
   let(:post2) { FactoryGirl.create(:post, user: author) }
   let(:post3) { FactoryGirl.create(:post, user: author) }
+  let(:photo) { FactoryGirl.create(:photo, user: uploader) }
 
   describe "GET /posts" do
     it "displays posts" do
@@ -39,10 +41,25 @@ describe "Posts" do
       visit new_post_path
       fill_in "Title", :with => "A Sample post title"
       fill_in "Body", :with => "this is what the post says"
+      fill_in "Photo Title", :with => "A sample photo title"
+      fill_in "Photo Caption", :with => "this is the photo caption"
+      attach_file("File Upload","#{Rails.root}/spec/samples/hutchhead.png")
       click_button I18n.t('buttons.create_post')
       page.should have_content("A Sample post title")
+      page.should have_content("A sample photo title")
+      page.should have_content("this is the photo caption")
+      page.should have_css('img', :src => photo.image.url(:thumb))
     end
     
+    it "should fail validation when the title and body are not filled out" do
+      login(author)
+
+      visit new_post_path
+      click_button I18n.t('buttons.create_post')
+      page.should have_content("Title can't be blank")
+      page.should have_content("Body can't be blank")
+    end
+
     it "should not allow a vanilla user to post a post" do
       login(user)
       

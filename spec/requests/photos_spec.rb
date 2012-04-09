@@ -45,6 +45,7 @@ describe "Photos" do
       page.should have_content("A Sample photo title")
       page.should have_content("this is the photo caption")
       page.should have_css('img', :src => photo.image.url(:thumb))
+      page.should have_content(uploader.name)
     end
     
     it "should not allow a vanilla user to photo a photo" do

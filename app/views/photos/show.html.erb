@@ -1,4 +1,5 @@
 <h2><%= @photo.title %></h2>
+<section class="byline">Posted by <%= @photo.user.name %></section>
 
 <a href="<%= @photo.image.url(:medium) %>"><%= image_tag @photo.image.url(:thumb) %></a>
 

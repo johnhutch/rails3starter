@@ -1,7 +1,14 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :as => :parent
+  has_many :photos, :as => :owner
   
+  accepts_nested_attributes_for :photos, :reject_if => lambda { |a| a[:image].blank? }
+
+  validates_presence_of :title, :body
+  
+  attr_accessible :title, :body, :photos_attributes
+
   def published?
     self.published ? self.published_string : "Not published"
   end

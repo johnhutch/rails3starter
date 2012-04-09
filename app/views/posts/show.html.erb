@@ -1,6 +1,14 @@
 <article id="post">
   <h3><%= @post.title %></h3>
   <div id="byline">Posted by <%= @post.user.email %></div>
+  
+  <% for photo in @post.photos %>
+    <h4><%= photo.title %></h4>
+
+    <a href="<%= photo.image.url(:medium) %>"><%= image_tag photo.image.url(:thumb) %></a>
+
+    <%= markdown photo.caption %>
+  <% end %>
   <%= markdown @post.body %>
 </article>
 
