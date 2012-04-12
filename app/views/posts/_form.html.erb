@@ -16,7 +16,9 @@
     <%= f.text_field :title %>
   </div>
   
-  <%= render :partial => 'photo_fields', :locals => { :f => f } %>
+  <%= f.fields_for :photos do |p| %>
+    <%= render :partial => 'photo_fields', :locals => { :p => p } %>
+  <% end %>
 
   <div class="field">
     <%= f.label :body %>

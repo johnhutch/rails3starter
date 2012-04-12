@@ -2,7 +2,13 @@ Tinder::Application.routes.draw do
 
   resources :photos
 
-  resources :posts
+  resources :posts do 
+    member do
+      post :comment
+    end
+  end
+
+  resources :comments
   resources :contents
   
   devise_for :users

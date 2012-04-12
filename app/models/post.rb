@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :parent
   has_many :photos, :as => :owner
   
-  accepts_nested_attributes_for :photos, :reject_if => lambda { |a| a[:image].blank? }
+  accepts_nested_attributes_for :photos, :reject_if => lambda { |a| a[:image].blank? }, :allow_destroy => true
 
   validates_presence_of :title, :body
   
