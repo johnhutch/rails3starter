@@ -16,23 +16,7 @@
     <%= f.text_field :title %>
   </div>
   
-  <%= f.fields_for :photos do |p| %>
-    <fieldset class="photo">
-      <h3>Photo:</h3>
-      <div class="field">
-        <%= p.label :title, "Photo Title" %>
-        <%= p.text_field :title %>
-      </div>
-      <div class="field">
-        <%= p.label :image, "File Upload" %>
-        <%= p.file_field :image %>
-      </div>
-      <div class="field">
-        <%= p.label :caption, "Photo Caption" %>
-        <%= p.text_field :caption %>
-      </div>
-    </fieldset>
-  <% end %>
+  <%= render :partial => 'photo_fields', :locals => { :f => f } %>
 
   <div class="field">
     <%= f.label :body %>

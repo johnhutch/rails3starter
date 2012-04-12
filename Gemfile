@@ -32,4 +32,6 @@ group :test do
   gem 'launchy'
   gem 'rb-fsevent' # mac-only gem for guard auto-detect. remove if on another OS
   gem 'database_cleaner'
+  gem 'spork', '~> 0.9.0.rc'
+  gem 'guard-spork'
 end

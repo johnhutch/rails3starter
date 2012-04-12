@@ -90,6 +90,9 @@ GEM
       thor (~> 0.14.6)
     guard-rspec (0.6.0)
       guard (>= 0.10.0)
+    guard-spork (0.6.1)
+      guard (>= 0.10.0)
+      spork (>= 0.8.4)
     highline (1.6.11)
     hike (1.2.1)
     i18n (0.6.0)
@@ -168,6 +171,7 @@ GEM
       ffi (~> 1.0)
       multi_json (~> 1.0)
       rubyzip
+    spork (0.9.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -200,6 +204,7 @@ DEPENDENCIES
   factory_girl_rails
   formalize-rails
   guard-rspec
+  guard-spork
   jquery-rails
   json
   launchy
@@ -210,5 +215,6 @@ DEPENDENCIES
   redcarpet
   rspec-rails
   sass-rails (~> 3.2.3)
+  spork (~> 0.9.0.rc)
   sqlite3
   uglifier (>= 1.0.3)
