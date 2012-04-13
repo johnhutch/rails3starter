@@ -1,4 +1,4 @@
-<%= form_for(@post, :html => { :multipart => true }) do |f| %>
+<%= nested_form_for(@post, :html => { :multipart => true }) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -19,6 +19,8 @@
   <%= f.fields_for :photos do |p| %>
     <%= render :partial => 'photo_fields', :locals => { :p => p } %>
   <% end %>
+  <div class="add button"><%= f.link_to_add "Add a photo", :photos %></div>
+
 
   <div class="field">
     <%= f.label :body %>

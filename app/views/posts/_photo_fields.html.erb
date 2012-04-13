@@ -12,9 +12,9 @@
     <%= p.label :caption, "Photo Caption" %>
     <%= p.text_field :caption %>
   </div>
-  <div class="field destroy checkbox">
-    <%= p.check_box :_destroy %>
-    <%= p.label :_destroy, "Remove" %>
+  <div class="field destroy">
+    <%= p.link_to_remove "Remove this photo" %>
   </div>
+
 </fieldset>
 

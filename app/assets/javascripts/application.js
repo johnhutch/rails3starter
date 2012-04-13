@@ -7,4 +7,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.formalize
+//= require nested_form
 //= require_tree .
