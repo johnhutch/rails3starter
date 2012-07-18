@@ -1,6 +1,6 @@
 <%= nested_form_for(@post, :html => { :multipart => true }) do |f| %>
   <% if @post.errors.any? %>
-    <div id="error_explanation">
+    <div id="post_error_explanation" class="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>

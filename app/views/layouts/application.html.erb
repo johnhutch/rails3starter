@@ -45,6 +45,9 @@
           <%= link_to "Edit Profile", edit_user_registration_path %> | 
           <%= link_to "Sign out", destroy_user_session_path, :method => "delete" %><br />
           <%= link_to "New Blog Post", new_post_path if current_user.role? :author %>
+          <% if current_user.role? :admin %>
+            <%= link_to "User Admin", users_path %>
+          <% end %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path %> or
           <%= link_to "Sign in", new_user_session_path %>

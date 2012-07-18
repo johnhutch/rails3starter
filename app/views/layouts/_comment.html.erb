@@ -1,4 +1,9 @@
 <div class="comment <%= cycle("even", "odd") %>">
 	<div class="byline">From <%= link_to comment.user.name, comment.user %> &bull; <%= time_ago_in_words(comment.created_at) %> ago</div>
-	<div class="body"><%= comment.body %></div>
+    <% if current_user == comment.user %>
+      <div class="admin">
+        <%= link_to "Edit", edit_comment_path, :class => "edit_comment", :id => "edit_comment_" + comment.id.to_s %>
+        <%= link_to "Delete", comment, :method => "delete", :class => "delete_comment", :id => "delete_comment_" + comment.id.to_s %>
+    <% end %>
+    <div class="body"><%= comment.body %></div>
 </div>

@@ -10,7 +10,7 @@ class Ability
     elsif user.role? :uploader
                         can :read, :all
                         cannot :manage, :all
-                        can :create, [Comment, Photo]
+                        can :create, [Photo]
                         can :update, Photo do |p|
                           p.try(:user) == user
                         end
@@ -23,12 +23,18 @@ class Ability
     elsif user.role? :author
                         can :read, :all
                         cannot :manage, :all
-                        can :create, [Comment, Post]
+                        can :create, [Post, Comment]
                         can :update, Post do |p|
                           p.try(:user) == user
                         end
                         can :destroy, Post do |p|
                           p.try(:user) == user
+                        end
+                        can :update, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can :destroy, Comment do |c|
+                          c.try(:user) == user
                         end
                         can :show, [Post]
                         can :front, Content
@@ -36,7 +42,7 @@ class Ability
     elsif user.role? :commenter
                         can :read, :all
                         cannot :manage, :all
-                        can :create, Comment
+                        can :create, [Comment]
                         can :update, Comment do |c|
                           c.try(:user) == user
                         end
