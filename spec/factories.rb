@@ -28,19 +28,19 @@ FactoryGirl.define do
     factory :admin, :class => User do
       name
       email
-      after_create { |user| user.roles << FactoryGirl.create(:admin_role) }
+      after(:create) { |user| user.roles << FactoryGirl.create(:admin_role) }
     end
     
     factory :author , :class => User do
       name
       email
-      after_create { |user| user.roles << FactoryGirl.create(:author_role) }
+      after(:create) { |user| user.roles << FactoryGirl.create(:author_role) }
     end
 
     factory :uploader, :class => User do
       name
       email
-      after_create { |user| user.roles << FactoryGirl.create(:uploader_role) }
+      after(:create) { |user| user.roles << FactoryGirl.create(:uploader_role) }
     end
   end
   

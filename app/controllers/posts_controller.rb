@@ -27,7 +27,6 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
-    3.times { @post.photos.build }
 
     respond_to do |format|
       format.html # new.html.erb
