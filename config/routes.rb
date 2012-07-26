@@ -12,7 +12,9 @@ Tinder::Application.routes.draw do
   resources :contents
   
   devise_for :users
-  resources :users
+  resources :users do
+    resources :roles 
+  end
   
   # content routes
   match "/admin" => "contents#admin", :as => :admin

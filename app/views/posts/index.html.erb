@@ -1,10 +1,10 @@
-<section id="posts">
+<section id="posts" class="posts">
 <h3>Posts</h3>
 <% @posts.each do |post| %>
   <article class="post">
     <h4><%= post.title %></h4>
     <%= markdown post.body %>
-    <td><%= link_to 'Read More', post %></td>
+    <p class="readmore"><%= link_to 'Read More', post %></p>
   </article>
 <% end %>
 </section>

@@ -3,7 +3,10 @@
 
 en:
   site_name: "Tinder"
-
+  
+  labels:
+    update_comment:          "Update your comment"
+    post_a_comment:          "Post a comment"
   buttons:
     reset_password:         "Send me reset password instructions"
     change_password:        "Change my password"
@@ -11,10 +14,15 @@ en:
     edit_post:              "Update Post"
     create_photo:           "Create Photo"
     edit_photo:             "Update Photo"
+    create_comment:         "Post my comment"
+    edit_comment:           "Update my comment"
   flash:
     post_created:           "Post was successfully created."
     post_updated:           "Post was successfully updated."
     photo_created:          "Photo was successfully created."
     photo_updated:          "Photo was successfully updated."
+    comment_created:        "Comment was successfully created."
+    comment_updated:        "Comment was successfully updated."
+    comment_problem:        "There was a problem saving your comment."
   links:
     forgot_password:        "Forgot my password"
