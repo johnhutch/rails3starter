@@ -35,12 +35,14 @@ describe "Posts" do
   end
 
   describe "POST /posts" do
-    it "should allow an author to post a post" do
+    it "should allow an author to post a post", :js => true do
+      author
       login(author)
 
       visit new_post_path
       fill_in "Title", :with => "A Sample post title"
       fill_in "Body", :with => "this is what the post says"
+      click_link I18n.t('links.add_a_photo')
       fill_in "Photo Title", :with => "A sample photo title"
       fill_in "Photo Caption", :with => "this is the photo caption"
       attach_file("File Upload","#{Rails.root}/spec/samples/hutchhead.png")

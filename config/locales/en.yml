@@ -17,6 +17,7 @@ en:
     create_comment:         "Post my comment"
     edit_comment:           "Update my comment"
   flash:
+    signed_in:              "Signed in successfully"
     post_created:           "Post was successfully created."
     post_updated:           "Post was successfully updated."
     photo_created:          "Photo was successfully created."
@@ -25,4 +26,5 @@ en:
     comment_updated:        "Comment was successfully updated."
     comment_problem:        "There was a problem saving your comment."
   links:
+    add_a_photo:            "Add a photo"
     forgot_password:        "Forgot my password"
