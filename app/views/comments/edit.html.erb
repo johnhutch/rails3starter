@@ -1,5 +1,5 @@
 <%= form_for @comment do |f| %>
     <%= f.label t('labels.update_comment') %>
     <%= f.text_area :body %>
-    <p><%= f.submit t('buttons.edit_comment'), :disable_with => "Saving..." %></p>
+    <p><%= f.submit t('buttons.edit_comment'), 'data-disable-with'=> "Saving..." %></p>
 <% end %>

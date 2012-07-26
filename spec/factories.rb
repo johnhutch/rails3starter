@@ -46,13 +46,13 @@ FactoryGirl.define do
     factory :commenter, :class => User do
       name
       email
-      after_create { |user| user.roles << FactoryGirl.create(:commenter_role) }
+      after(:create) { |user| user.roles << FactoryGirl.create(:commenter_role) }
     end
 
     factory :author_commenter, :class => User do
       name
       email
-      after_create { |user| 
+      after(:create) { |user| 
         user.roles << FactoryGirl.create(:author_role)
         user.roles << FactoryGirl.create(:commenter_role) 
       }
