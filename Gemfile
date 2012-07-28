@@ -9,7 +9,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'mysql2'
+gem 'pg'
 gem 'capistrano'
 gem 'json'
 

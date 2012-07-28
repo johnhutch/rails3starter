@@ -1,6 +1,6 @@
 defaults: &defaults
-  adapter: mysql2
-  username: root
+  adapter: postgresql 
+  username: tinder
   password: 
   host: localhost
 
