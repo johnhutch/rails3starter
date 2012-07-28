@@ -36,7 +36,6 @@ describe "Posts" do
 
   describe "POST /posts" do
     it "should allow an author to post a post", :js => true do
-      author
       login(author)
 
       visit new_post_path
