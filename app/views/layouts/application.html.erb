@@ -70,14 +70,17 @@
   <!-- JavaScript at the bottom for fast page loading -->
   <%= javascript_include_tag "application" %>
   <%= yield :scripts %>
-    
-  <!-- Change UA-XXXXX-X to be your site's ID -->
-  <script>
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
+  
+  <% # analytics slows down capybara significantly -- removed from testing environment 
+    unless Rails.env.test? %>
+    <!-- Change UA-XXXXX-X to be your site's ID -->
+    <script>
+      window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+      Modernizr.load({
+        load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+      });
+    </script>
+  <% end %>
 
 
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
