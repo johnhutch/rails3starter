@@ -36,7 +36,7 @@ describe "Users" do
       fill_in "Confirm Password", :with => "secret"
       fill_in "Name", :with => "New user!"
       click_button "Sign up"
-      page.should have_content("Signed in as")
+      page.should have_content("New user!")
       page.should have_content( I18n.t('devise.registrations.signed_up') )
     end
   end
