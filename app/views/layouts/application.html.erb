@@ -36,53 +36,16 @@
 </head>
 
 <body id="<%= action_name %>" class="<%= controller_name %>">
-    <div id="container">
-        <header>
+    <header>
         <h1><a href="/"><%=t :site_name %></a></h1>
-        <ul id="nav" class="nav">
-            <% if user_signed_in? && (current_user.role? :admin) %>
-                <%= link_to "User Admin", users_path %>
-            <% end %>
-            <% if user_signed_in? %>
-                <li id="actions" class"nav actions">
-                    <a href="" id="contribute" class="contribute">Contribute</a> 
-                    <ul>
-                        <%= link_to "New blog post", new_post_path if current_user.role? :author %>
-                        <%= link_to "Upload a photo", new_post_path if current_user.role? :uploader %>
-                    </ul>
-                </li>
-            <% end %>
-            <li id="about" class="nav_section about">
-            <ul>
-                <li><a href="">Copyright</a></li>
-                <li><a href="">Privacy Policy</a></li>
-                <li><a href="">Terms and Conditions</a></li>
-            </ul>
-            </li>
-            <li id="usernav" class="nav_section usernav">
-            <% if user_signed_in? %>
-                <ul id="profile" class="profile">
-                    <li><%= link_to current_user.name, user_path(current_user) %></li>
-                    <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
-                    <li>%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
-                </ul>
-            <% else %>
-                <ul id="signup" class="signup">
-                    <li><%= link_to "Sign up", new_user_registration_path %> or
-                    <%= link_to "Sign in", new_user_session_path %></li>
-                </ul>
-            <% end %>
-            </li>
-        </ul>
-        </header>
-
+        <%= render "layouts/nav" %>
+    </header>
+    <div id="container">
         <div id="main" role="main">
             <%= notice_block %>
             <%= alert_block %>
             <%= yield %>
         </div>
-        <footer>
-        </footer>
     </div> <!--! end of #container -->
     
     <!-- JavaScript at the bottom for fast page loading -->
