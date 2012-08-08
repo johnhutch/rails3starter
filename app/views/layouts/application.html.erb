@@ -36,11 +36,11 @@
 </head>
 
 <body id="<%= action_name %>" class="<%= controller_name %>">
-    <header>
+    <header class="clearfix">
         <h1><a href="/"><%=t :site_name %></a></h1>
         <%= render "layouts/nav" %>
     </header>
-    <div id="container">
+    <div id="container" class="clearfix">
         <div id="main" role="main">
             <%= notice_block %>
             <%= alert_block %>

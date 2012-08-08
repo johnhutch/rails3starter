@@ -1,7 +1,7 @@
 <nav>
     <ul id="nav" class="nav">
         <% if user_signed_in? && (current_user.role? :admin) %>
-            <%= link_to "User Admin", users_path %>
+            <li><%= link_to "User Admin", users_path %></li>
         <% end %>
         <% if user_signed_in? %>
             <li id="actions" class"nav actions">
@@ -13,25 +13,23 @@
             </li>
         <% end %>
         <li id="about" class="nav_section about">
-        <ul>
-            <li><a href="">Copyright</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms and Conditions</a></li>
-        </ul>
+            <a href="/about">About</a>
+            <ul>
+                <li><a href="">Copyright</a></li>
+                <li><a href="">Privacy Policy</a></li>
+                <li><a href="">Terms and Conditions</a></li>
+            </ul>
         </li>
         <li id="usernav" class="nav_section usernav">
-        <% if user_signed_in? %>
-            <ul id="profile" class="profile">
-                <li><%= link_to current_user.name, user_path(current_user) %></li>
-                <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
-                <li>%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
-            </ul>
-        <% else %>
-            <ul id="signup" class="signup">
-                <li><%= link_to "Sign up", new_user_registration_path %> or
-                <%= link_to "Sign in", new_user_session_path %></li>
-            </ul>
-        <% end %>
+            <% if user_signed_in? %>
+                <%= link_to current_user.name, user_path(current_user) %>
+                <ul id="profile" class="profile">
+                    <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
+                    <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
+                </ul>
+            <% else %>
+                <%= link_to "Sign up / Sign in", new_user_session_path %></li>
+            <% end %>
         </li>
     </ul>
 </nav>
