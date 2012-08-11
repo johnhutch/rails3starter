@@ -4,6 +4,10 @@ defaults: &defaults
   password: 
   host: localhost
 
+production:
+  <<: *defaults
+  database: tinder_dev
+
 development:
   <<: *defaults
   database: tinder_dev
