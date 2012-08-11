@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.8'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
@@ -8,7 +8,7 @@ group :assets do
   gem 'uglifier', '>= 1.2.6'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.0.2'
 gem 'pg'
 gem 'capistrano'
 gem 'json'
