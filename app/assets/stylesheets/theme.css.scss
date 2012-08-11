@@ -37,9 +37,12 @@ body { background: #6a7176; }
     ul li { font-size: 12px; list-style: square; } 
 }
 
-header { background-color: white; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #aaa; 
-    h1 { float: left; @include text-shadow(0, 1px, #222);
-        a { color: #222; text-decoration: none; }
+header { background-color: white; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #aaa; position:relative; height: 44px;
+    h1 { float: left; @include text-shadow(0, 1px, #222); position:absolute; top: 9px;  right: 50%; margin: 0; padding: 0;
+        a { color: #222; text-decoration: none; 
+            &:hover { color: #222; }
+            &:visited { color: #222; }
+        }
     }
 }
 
