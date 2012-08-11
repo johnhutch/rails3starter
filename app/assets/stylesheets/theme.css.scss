@@ -1,0 +1,28 @@
+body { background: #6a7176; }
+#container { position: relative; background-color: white; padding: 20px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+#notice { color: green; }
+.field_with_errors { padding: 2px; background-color: red; display: table; }
+#error_explanation { border: 2px solid red; padding: 7px; padding-bottom: 0; margin-bottom: 20px; background-color: #f0f0f0;
+  h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: -7px; margin-bottom: 0px; background-color: #c00; color: #fff; }
+  ul li { font-size: 12px; list-style: square; } 
+}
+
+header { background-color: white; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #aaa; }
+header h1 { text-shadow: #222 0 1px 0; float: left;}
+header h1 a { color: #222; text-decoration: none; }
+
+header nav {float: right;}
+header nav ul {list-style-type: none; margin: 0; padding: 0; }
+header nav ul li {margin: 0; padding: 0; float: left;}
+header nav ul li a {display: block; padding: .2em 1em; text-decoration: none; color: red; }
+header nav ul li ul {display: none;}
+
+/****** Sign up / Sign in ******/
+
+
+/***** additional form styles *****/
+form .field label {display: block;}
+form .field em {display: block; font-size:.9em; color: #666}
+form .checkbox label, form .radio label {display: inline;}
+
