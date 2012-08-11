@@ -1,0 +1,16 @@
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+  #container {width: 480px; text-align: left; margin: 20px auto;}
+
+}
+
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
+  #container {width: 768px; text-align: left; margin: 20px auto;}
+}
+
+@media only screen and (min-width: 1024px) {
+  #container {width: 950px; text-align: left; margin: 20px auto;}
+}
+
+
