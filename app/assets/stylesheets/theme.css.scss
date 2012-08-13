@@ -1,13 +1,9 @@
 @mixin border-box {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -box-sizing: border-box;
+    -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -box-sizing: border-box;
 }
 
 @mixin text-shadow($horz, $vert, $color, $blur: 0) {
-    -webkit-box-sizing: $horz, $vert, $blur, $color;
-    -moz-box-sizing: $horz, $vert, $blur, $color;
-    box-sizing: $horz, $vert, $blur, $color;
+    -webkit-box-sizing: $horz, $vert, $blur, $color; -moz-box-sizing: $horz, $vert, $blur, $color; box-sizing: $horz, $vert, $blur, $color;
 }
 
 @mixin box-shadow($shadow1, $shadow2:false, $shadow3:false, $shadow4:false, $shadow5:false) {
@@ -21,9 +17,7 @@
         @if $shadow5 != false
           { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5; }
 
-  -webkit-box-shadow: $params;
-  -moz-box-shadow: $params;
-  box-shadow: $params;
+    -webkit-box-shadow: $params; -moz-box-shadow: $params; box-shadow: $params;
 }
 
 
@@ -38,7 +32,7 @@ body { background: #6a7176; }
 }
 
 header { background-color: white; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #aaa; position:relative; height: 44px;
-    h1 { float: left; @include text-shadow(0, 1px, #222); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0;
+    h1 { @include text-shadow(0, 1px, #222); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0;
         a { color: #222; text-decoration: none; 
             &:hover { color: #222; }
             &:visited { color: #222; }
@@ -46,7 +40,7 @@ header { background-color: white; margin: 0 0 1em 0; display: block;  border-bot
     }
 }
 
-header nav {float: right;
+header nav {float: right; margin-right: 5%;
     ul {list-style-type: none; margin: 0; padding: 0; 
         li {margin: 0; padding: 0; float: left;
             a {display: block; padding: 1.1em 1em 1em 1em; text-decoration: none; color: red; 
@@ -55,6 +49,13 @@ header nav {float: right;
             ul {display: none;}
         }
     }
+    .dropdown {position: relative; z-index: 200;
+        ul { position:absolute; top:44px; left:0; display:none; width:150px;; list-style-type:none; z-index:200; background-color: white; @include box-shadow(0 2px 4px #333); border-: 1px solid #aaa;
+            li {clear: both; float: none;}
+            a {display: block; padding: 5px; text-decoration: none;}
+        }
+    }
+    .hover {display: block !important;}
 }
 
 /****** Sign up / Sign in ******/
