@@ -12,7 +12,7 @@
 @media only screen and (min-width: 768px) {
   /* Style adjustments for viewports 768px and over go here */
   #container {width: 768px; text-align: left; margin: 20px auto;}
-  header h1 {position: absolute; float: none; margin-left: 0; display: block;}
+  header h1 {position: absolute; float: none; margin-left: 0; margin-top: 0}
 }
 
 @media only screen and (min-width: 1024px) {
