@@ -22,13 +22,13 @@
         </li>
         <li id="usernav" class="usernav dropdown">
             <% if user_signed_in? %>
-                <%= link_to current_user.name, user_path(current_user) %>
+                <%= link_to current_user.name, user_path(current_user), :id => "profile_dropdown" %>
                 <ul id="profile" class="profile submenu">
                     <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
                     <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
                 </ul>
             <% else %>
-                <%= link_to "Sign up / Sign in", new_user_session_path %></li>
+                <%= link_to t("links.signup_signin"), new_user_session_path %></li>
             <% end %>
         </li>
     </ul>
