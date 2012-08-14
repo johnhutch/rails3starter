@@ -7,7 +7,7 @@
  *= require theme
  *= require helpers
  *= require formalize
- *= require media_queries
+ *= require mediaqueries
  *= require print
 */
 

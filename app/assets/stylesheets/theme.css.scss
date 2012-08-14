@@ -2,27 +2,20 @@
     -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -box-sizing: border-box;
 }
 
-@mixin text-shadow($horz, $vert, $color, $blur: 0) {
-    -webkit-box-sizing: $horz, $vert, $blur, $color; -moz-box-sizing: $horz, $vert, $blur, $color; box-sizing: $horz, $vert, $blur, $color;
+@mixin text-shadow($shadows) {
+    -webkit-text-shadow: $shadows; -moz-text-shadow: $shadows; text-shadow: $shadows;
 }
+$light_letterpress: 0 2px 3px #fff;
 
-@mixin box-shadow($shadow1, $shadow2:false, $shadow3:false, $shadow4:false, $shadow5:false) {
- $params: $shadow1;
-  @if $shadow2 
-    { $params: $shadow1, $shadow2; }
-    @if $shadow3 != false
-      { $params: $shadow1, $shadow2, $shadow3; }
-      @if $shadow4 != false
-        { $params: $shadow1, $shadow2, $shadow3, $shadow4; }
-        @if $shadow5 != false
-          { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5; }
-
-    -webkit-box-shadow: $params; -moz-box-shadow: $params; box-shadow: $params;
+@mixin box-shadow($shadows) {
+    -webkit-box-shadow: $shadows; -moz-box-shadow: $shadows; box-shadow: $shadows;
 }
+$dark_boxshadow: 0px 2px 4px #333;
+$light_boxshadow: 0px 2px 4px #ccc;
+$under_shadow: 0px 8px 6px -6px #999;
 
-
-body { background: #6a7176; }
-#container { position: relative; background-color: white; padding: 20px; @include border-box; }
+body { background: #f6f1ea; }
+#container { position: relative; background-color: #fdfdfc; padding: 20px; @include border-box; border: 1px solid #aaa; }
 
 #notice { color: green; }
 .field_with_errors { padding: 2px; background-color: red; display: table; }
@@ -31,11 +24,11 @@ body { background: #6a7176; }
     ul li { font-size: 12px; list-style: square; } 
 }
 
-header { background-color: white; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #aaa; position:relative; height: 44px;
-    h1 { @include text-shadow(0, 1px, #222); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0;
-        a { color: #222; text-decoration: none; 
-            &:hover { color: #222; }
-            &:visited { color: #222; }
+header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 44px; @include box-shadow($under_shadow);
+    h1 { @include text-shadow($light_letterpress); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
+        a { color: #bbb; text-decoration: none; 
+            &:hover { color: #ddd; }
+            &:visited { color: #bbb; }
         }
     }
 }
@@ -43,14 +36,15 @@ header { background-color: white; margin: 0 0 1em 0; display: block;  border-bot
 header nav {float: right; margin-right: 5%;
     ul {list-style-type: none; margin: 0; padding: 0; 
         li {margin: 0; padding: 0; float: left;
-            a {display: block; padding: 1.1em 1em 1em 1em; text-decoration: none; color: red; 
-                &:hover {background-color: #eee; }
+            a {display: block; padding: 1.1em 1em 14px 1em; text-decoration: none; color: #999; 
+                &:hover {background-color: #555; color: #aaa}
+                &:visited {color: #999; }
             }
             ul {display: none;}
         }
     }
     .dropdown {position: relative; z-index: 200;
-        ul { position:absolute; top:44px; left:0; display:none; width:150px;; list-style-type:none; z-index:200; background-color: white; @include box-shadow(0 2px 4px #333); border-: 1px solid #aaa;
+        ul { position:absolute; top:44px; left:0; display:none; width:150px; list-style-type:none; z-index:200; background-color: white; @include box-shadow($under_shadow); border: 1px solid #aaa;
             li {clear: both; float: none;}
             a {display: block; padding: 5px; text-decoration: none;}
         }
