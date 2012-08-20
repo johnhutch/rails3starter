@@ -1,5 +1,7 @@
 <h2>This is the front page</h2>
 
+<%= Settings.front_words %>
+
 <section id="blog" class="blog">
   <% for post in Post.all do %>
     <article id="post_#{post.id}" class="post">
