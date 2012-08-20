@@ -14,8 +14,9 @@ $dark_boxshadow: 0px 2px 4px #333;
 $light_boxshadow: 0px 2px 4px #ccc;
 $under_shadow: 0px 8px 6px -6px #999;
 
-body { background: #f6f1ea; }
+body { background: #f6f1ea;  color: #444440; }
 #container { position: relative; background-color: #fdfdfc; padding: 20px; @include border-box; border: 1px solid #aaa; }
+h1, h2, h3, h4, h5, h6 {color: #999992;}
 
 #notice { color: green; }
 .field_with_errors { padding: 2px; background-color: red; display: table; }

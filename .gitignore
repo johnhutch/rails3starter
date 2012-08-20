@@ -10,3 +10,4 @@ config/initializers/mail_settings.rb
 public/system
 public/assets
 logfile
+config/initializers/omniauth.rb
