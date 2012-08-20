@@ -17,7 +17,6 @@ Tinder currently includes:
 Things when launching a new site with Tinder
 --------------------------------------------
 
-* Update initial admin user in /db/migrate/20120325060320_add_name_to_user.rb 
-* Copy /config/intializers/omniauth_example.rb to /config/initializers/omniauth.rb and update OAuth keys with your respective keys.
-* Remove omniauth line from .gitignore
+* Update initial settings in /config/settings.yml and each setting file in /config/settings/*.yml
+* Create git-ignored local settings (such as omniauth keys and secretes) with /config/settings/<environment>.local.yml
 * Add your capybara deploy script

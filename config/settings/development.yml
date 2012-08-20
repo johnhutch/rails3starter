@@ -1,0 +1,10 @@
+front_words:    "Be sure to update your /config/settings/development.rb"
+admin_user:
+    email:              "johnhutch+admin@gmail.com"
+    password:           "chester"
+    name:               "hutch"
+omniauth:
+    twitter_key:        ""
+    twitter_secret:     ""
+    facebook_id:        ""
+    facebook_secret:    ""
