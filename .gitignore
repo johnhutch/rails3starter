@@ -10,3 +10,7 @@ config/initializers/mail_settings.rb
 public/system
 public/assets
 logfile
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

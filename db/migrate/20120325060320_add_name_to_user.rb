@@ -10,9 +10,9 @@ class AddNameToUser < ActiveRecord::Migration
     
     # Create default admin users
     user = User.create do |u|
-      u.email = "johnhutch+admin@gmail.com"
-      u.password = u.password_confirmation = "chester"
-      u.name = "Hutch"
+      u.email = Settings.admin_user.email
+      u.password = u.password_confirmation = Settings.admin_user.password
+      u.name = Settings.admin_user.name
     end
     
     # Assign roles to default admin user
