@@ -24,6 +24,14 @@ body { background: #f6f1ea; }
     ul li { font-size: 12px; list-style: square; } 
 }
 
+/***** FORMS *****/
+form { margin-bottom: 1em;
+    .field {margin: 1em 0;
+        label {font-weight: bold; font-size: 1.2em; color: #777;}
+        input, textarea { width: 100%; padding: .4em .4em .2em .4em; @include border-box; font-size: 1.1em}
+    }
+}
+
 header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 44px; @include box-shadow($under_shadow);
     h1 { @include text-shadow($light_letterpress); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
         a { color: #bbb; text-decoration: none; 

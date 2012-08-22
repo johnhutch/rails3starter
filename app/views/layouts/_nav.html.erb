@@ -4,7 +4,7 @@
             <li><%= link_to "User Admin", users_path %></li>
         <% end %>
         <% if user_signed_in? && ((current_user.role? :author) || (current_user.role? :uploader)) %>
-            <li id="actions" class"actions dropdown">
+            <li id="actions" class="actions dropdown">
                 <a href="" id="contribute" class="contribute">Contribute</a> 
                 <ul>
                     <%= link_to "New blog post", new_post_path if current_user.role? :author %>
@@ -23,7 +23,7 @@
         <li id="usernav" class="usernav dropdown">
             <% if user_signed_in? %>
                 <%= link_to current_user.name, user_path(current_user), :id => "profile_dropdown" %>
-                <ul id="profile" class="profile submenu">
+                <ul> 
                     <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
                     <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
                 </ul>
