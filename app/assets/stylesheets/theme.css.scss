@@ -7,6 +7,10 @@
 }
 $light_letterpress: 0 2px 3px #fff;
 
+@mixin border-radius($params) {
+    -webkit-border-radius: $params; -moz-border-radius: $params; border-radius: $params;
+}
+
 @mixin box-shadow($shadows) {
     -webkit-box-shadow: $shadows; -moz-box-shadow: $shadows; box-shadow: $shadows;
 }
@@ -54,7 +58,21 @@ header nav {float: right; margin-right: 5%;
 }
 
 /****** Sign up / Sign in ******/
+/*-----------------------------*/
 
+/*** authentications ***/
+.authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius(8px); 
+    .remove { text-decoration: none; position: absolute; top: 3px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
+        &:hover { color: #FFF; background-color: #777; @include border-radius(8px); }
+    }
+    img { float: left; }
+    .provider, .uid { margin-left: 38px; margin-right: 20px; }
+    .provider { font-weight: bold; }
+    .uid { color: #666; font-size: 11px; }
+}
+.auth_provider { float: left; text-decoration: none; margin-right: 20px; text-align: center; margin-bottom: 10px; 
+    .auth_provider img { display: block; }
+}
 
 /***** additional form styles *****/
 form .field label {display: block;

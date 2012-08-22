@@ -12,11 +12,11 @@ Tinder currently includes:
 * Rspec and capybara tests with guard and launchy for on-the-fly testing and debugging
 * formalize UI
 * modernizr JS library for handling old browsers
-* HTML5 markup with responsive grid-based layouta
+* HTML5 markup with responsive grid-based layout
 
-Things when launching a new site with Tinder
+Things to do when launching a new site with Tinder
 --------------------------------------------
 
 * Update initial settings in /config/settings.yml and each setting file in /config/settings/*.yml
-* Create git-ignored local settings (such as omniauth keys and secretes) with /config/settings/<environment>.local.yml
+* Create git-ignored local settings (such as omniauth keys and secrets) with /config/settings/<environment>.local.yml
 * Add your capybara deploy script

@@ -1,18 +1,24 @@
-<% title "Authentications" %>
+<h2>Authentications</h2>
+<% if @authentications %>
+    <% unless @authentications.empty? %>
+        <p><strong>You can sign in to this account using:</strong></p>
+        <div class="authentications clearfix">
+            <% for authentication in @authentications %>
+                <div class="authentication">
+                    <%= image_tag "authbuttons/#{authentication.provider}_32.png" %>
+                    <div class="provider"><%= authentication.provider.titleize %></div>
+                    <div class="uid"><%= authentication.uid %></div>
+                    <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+    <p><strong>Add another service to sign in with:</strong></p>
+<% else %>
+    <p><strong>Sign in through one of these services:</strong></p>
+<% end %>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Provider</th>
-    <th>Uid</th>
-  </tr>
-  <% for authentication in @authentications %>
-    <tr>
-      <td><%= authentication.user_id %></td>
-      <td><%= authentication.provider %></td>
-      <td><%= authentication.uid %></td>
-      <td><%= link_to "Destroy", authentication, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
+<a href="/auth/twitter" class="auth_provider"><%= image_tag "authbuttons/twitter_64.png", :alt => "Twitter" %>Twitter</a>
+<a href="/auth/facebook" class="auth_provider"><%= image_tag "authbuttons/facebook_64.png", :alt => "Facebook" %>Facebook</a>
+<a href="/auth/google_apps" class="auth_provider"><%= image_tag "authbuttons/google_64.png", :alt => "Google" %>Google</a>
+<a href="/auth/open_id" class="auth_provider"><%= image_tag "authbuttons/openid_64.png", :alt => "OpenID" %>OpenID</a>
