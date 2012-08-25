@@ -26,13 +26,11 @@ gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'rails_config'
 
 group :development, :test do
-    gem 'nifty-generators'
     gem 'sqlite3'
     gem 'rspec-rails'
 end
 
 group :test do
-    gem 'mocha'
     gem 'factory_girl'
     gem 'factory_girl_rails'
     gem 'capybara-webkit'
