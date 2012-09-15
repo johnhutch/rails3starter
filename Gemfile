@@ -15,7 +15,6 @@ gem 'json'
 
 gem 'cancan', '~> 1.6.8'
 gem 'devise', '~> 2.1.2'
-gem 'omniauth', '~> 1.1.0'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 

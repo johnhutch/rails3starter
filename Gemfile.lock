@@ -259,7 +259,6 @@ DEPENDENCIES
   json
   launchy
   nested_form!
-  omniauth (~> 1.1.0)
   omniauth-facebook
   omniauth-twitter
   paperclip!

@@ -201,9 +201,15 @@ Devise.setup do |config|
     config.sign_out_via = :delete
 
     # ==> OmniAuth
-    # Add a new OmniAuth provider. Check the wiki for more information on setting
-    # up on your models and hooks.
-    # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+    # keys should be stored in /config/settings.local.yml to prevent accidentally adding 
+    # sensitive information to git.
+    # E.g., in /config/local.settings.yml:
+    # omniauth:
+    #   twitter_key:        "foo"
+    #   twitter_secret:     "bar"
+    #   facebook_id:        "blah"
+    #   facebook_secret:    "argh"
+    config.omniauth :twitter, Settings.omniauth.twitter_key, Settings.omniauth.twitter_secret
 
     # ==> Warden configuration
     # If you want to use other strategies, that are not supported by Devise, or
