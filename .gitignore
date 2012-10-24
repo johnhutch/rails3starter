@@ -11,6 +11,7 @@ public/system
 public/assets
 logfile
 config/initializers/omniauth.rb
+vendor/bundles/ruby
 
 config/settings.local.yml
 config/settings/*.local.yml

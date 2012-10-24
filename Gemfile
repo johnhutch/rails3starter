@@ -9,9 +9,10 @@ gem 'uglifier', '>= 1.2.6'
 end
 
 gem 'jquery-rails', '~> 2.0.2'
-gem 'pg'
+gem 'mysql2'
 gem 'capistrano'
 gem 'json'
+gem 'therubyracer' # added to avoid javascript errors on deploy
 
 gem 'cancan', '~> 1.6.8'
 gem 'devise', '~> 2.1.2'
