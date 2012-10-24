@@ -15,7 +15,6 @@ Spork.prefork do
   require 'cancan/matchers'
   require "paperclip/matchers" 
   require "factory_girl"
-  require "factory_girl_rails"
   
   Capybara.javascript_driver = :webkit
 
@@ -52,6 +51,9 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  require "factory_girl_rails"
+  ActiveSupport::Dependencies.clear
+
   # This code will be run each time you run your specs.
   RSpec.configure do |config|
     config.before(:each) { reset_email }

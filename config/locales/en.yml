@@ -20,11 +20,14 @@ en:
     signed_in:              "Signed in successfully"
     post_created:           "Post was successfully created."
     post_updated:           "Post was successfully updated."
+    post_published:         "Post was successfully published."
     photo_created:          "Photo was successfully created."
     photo_updated:          "Photo was successfully updated."
     comment_created:        "Comment was successfully created."
     comment_updated:        "Comment was successfully updated."
     comment_problem:        "There was a problem saving your comment."
+  errors:
+    post_publish:           "There was a problem publishing your post."
   links:
     add_a_photo:            "Add a photo"
     forgot_password:        "Forgot my password"

@@ -36,7 +36,7 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can :show, [Post]
+                        can [:show, :publish], [Post]
                         can :front, Content
     
     elsif user.role? :commenter

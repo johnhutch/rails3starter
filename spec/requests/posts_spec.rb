@@ -51,6 +51,23 @@ describe "Posts" do
       page.should have_content("this is the photo caption")
       page.should have_css('img', :src => photo.image.url(:thumb))
     end
+
+    it "should indicate its published date after post is published" do
+      login(author)
+      post
+      post.publish_me
+
+      visit publish_post_path(post)
+      page.should have_content("published on")
+    end
+
+    it "should default to not being published" do
+      login(author)
+      post
+
+      visit post_path(post)
+      page.should have_content("currently unpublished")
+    end
     
     it "should fail validation when the title and body are not filled out" do
       login(author)

@@ -23,6 +23,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def publish
+    @post = Post.find(params[:id])
+    @post.publish_me 
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to(@post, :notice => t('flash.post_published')) }
+        format.xml  { render :xml => @post, :status => :created, :location => @post }
+      else
+        format.html { redirect_to(@post, :notice => t('errors.post_publish')) }
+        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /posts/new
   # GET /posts/new.xml
   def new

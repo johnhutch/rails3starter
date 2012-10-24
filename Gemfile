@@ -23,6 +23,7 @@ gem 'formalize-rails'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'rails_config'
+gem 'stamp'
 
 group :development, :test do
     gem 'sqlite3'
@@ -32,7 +33,7 @@ end
 
 group :test do
     gem 'factory_girl'
-    gem 'factory_girl_rails'
+    gem 'factory_girl_rails', :require => false
     gem 'capybara-webkit'
     gem 'guard-rspec'
     gem 'launchy'

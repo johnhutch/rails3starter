@@ -9,6 +9,11 @@ class Post < ActiveRecord::Base
   
   attr_accessible :title, :body, :photos_attributes
 
+  def publish_me
+    self.published = true
+    self.published_at = Time.now
+  end
+
   def published?
     self.published ? self.published_string : "Not published"
   end
