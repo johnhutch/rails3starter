@@ -1,7 +1,7 @@
 Tinder gets you started. 
 ========================
 
-Current version: Rails 3.2.8
+Current version: Rails 3.2.11
 
 Tinder currently includes:
 --------------------------
@@ -19,4 +19,11 @@ Things to do when launching a new site with Tinder
 
 * Update initial settings in /config/settings.yml and each setting file in /config/settings/*.yml
 * Create git-ignored local settings (such as omniauth keys and secrets) with /config/settings/<environment>.local.yml
-* Add your capybara deploy script
+* Add your capistrano deploy script
+
+TO DO
+=====
+
+1. Import ability.rb from game night, adjust migrations
+2. Add bootstrap or helium
+3. Add railscast's jquery batch image uploader

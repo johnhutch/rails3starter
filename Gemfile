@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 group :assets do
-gem 'sass-rails',   '~> 3.2.5'
+gem 'sass-rails',   '~> 3.2.6'
 gem 'coffee-rails', '~> 3.2.2'
-gem 'uglifier', '>= 1.2.6'
+gem 'uglifier', '>= 1.3.0'
 end
 
 gem 'jquery-rails', '~> 2.0.2'
@@ -15,7 +15,7 @@ gem 'json'
 gem 'therubyracer' # added to avoid javascript errors on deploy
 
 gem 'cancan', '~> 1.6.8'
-gem 'devise', '~> 2.1.2'
+gem 'devise', '~> 2.2.3'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 

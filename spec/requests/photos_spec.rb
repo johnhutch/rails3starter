@@ -18,18 +18,16 @@ describe "Photos" do
       photo3
 
       visit photos_path
-      page.should have_css('img', :src => photo.image.url(:thumb))
-      page.should have_css('img', :alt => photo.title)
-      page.should have_css('img', :alt => photo2.title)
-      page.should have_css('img', :alt => photo3.title)
+      page.should have_xpath("//img[@alt=\"#{photo.title}\" and @src=\"#{photo.image.url(:thumb)}\"]")
+      page.should have_xpath("//img[@alt=\"#{photo2.title}\" and @src=\"#{photo2.image.url(:thumb)}\"]")
+      page.should have_xpath("//img[@alt=\"#{photo3.title}\" and @src=\"#{photo3.image.url(:thumb)}\"]")
     end
   end
   
   describe "GET /photos/:id" do
     it "displays a single photo" do
       visit photo_path(photo)
-      page.should have_css('img', :src => photo.image.url(:thumb))
-      page.should have_css('img', :alt => photo.title)
+      page.should have_xpath("//img[@src=\"#{photo.image.url(:thumb)}\"]")
     end
   end
 
@@ -44,7 +42,7 @@ describe "Photos" do
       click_button I18n.t('buttons.create_photo')
       page.should have_content("A Sample photo title")
       page.should have_content("this is the photo caption")
-      page.should have_css('img', :src => photo.image.url(:thumb))
+      page.should have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
       page.should have_content(uploader.name)
     end
     
@@ -66,7 +64,7 @@ describe "Photos" do
       click_button I18n.t('buttons.edit_photo')
       page.should have_content( I18n.t('flash.photo_updated'))
       page.should have_content('An edited photo title')
-      page.should have_css('img', :src => photo2.image.url(:thumb))
+      page.should have_xpath("//img[contains(@src,\"mark.jpg\")]") 
     end
     
     it "should not allow a vanilla user to edit a photo" do
@@ -92,7 +90,7 @@ describe "Photos" do
       click_button I18n.t('buttons.edit_photo')
       page.should have_content( I18n.t('flash.photo_updated'))
       page.should have_content('An edited photo title')
-      page.should have_css('img', :src => photo2.image.url(:thumb))
+      page.should have_xpath("//img[contains(@src,\"mark.jpg\")]") 
     end
   end
   
