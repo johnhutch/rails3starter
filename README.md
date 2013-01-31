@@ -27,3 +27,17 @@ TO DO
 1. Import ability.rb from game night, adjust migrations
 2. Add bootstrap or helium
 3. Add railscast's jquery batch image uploader
+4. Create admin page
+5. Change find_or_create_by… to where(…).first_or_create
+6. Change scopes to lamda scopes: 
+
+        scope :published, -> {where(:published => true) }
+
+4. Create site activity widget: P
+
+        Post.includes(:comments).where("comments.create_at > ?", …) 
+
+    or, in rails 4
+
+        Post.includes(:comments).order("comments.created_at")
+
