@@ -24,7 +24,7 @@ Things to do when launching a new site with Tinder
 TO DO
 =====
 
-1. Import ability.rb from game night, adjust migrations
+1. Figure out why js/css assets disappear after first load or first test
 2. Add bootstrap or helium
 3. Add railscast's jquery batch image uploader
 4. Create admin page
