@@ -16,7 +16,7 @@ Spork.prefork do
   require "paperclip/matchers" 
   require "factory_girl"
   
-  Capybara.javascript_driver = :webkit
+  #Capybara.javascript_driver = :webkit
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -61,6 +61,11 @@ Spork.each_run do
     
     config.before(:each) do
       DatabaseCleaner.start
+      admin_role =    Role.create(:name => "admin")
+      uploader_role =     Role.create(:name => "uploader")
+      author_role =    Role.create(:name => "author")
+      commenter_role =  Role.create(:name => "commenter")
+      nobody_role =  Role.create(:name => "nobody")
     end
 
     config.after(:each) do

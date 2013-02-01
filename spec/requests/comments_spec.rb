@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Comments" do
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) {FactoryGirl.create(:nobody)}
   let(:admin) {FactoryGirl.create(:admin)}
   let(:commenter) {FactoryGirl.create(:commenter)}
   let(:author_commenter) {FactoryGirl.create(:author_commenter)}
@@ -30,7 +30,6 @@ describe "Comments" do
       visit post_path(post)
 
       fill_in "comment_body", :with => "A sample comment body."
-      #save_and_open_page
       click_button I18n.t('buttons.create_comment')
       page.should have_content("A sample comment body")
     end

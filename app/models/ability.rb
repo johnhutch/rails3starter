@@ -2,61 +2,43 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new # guest user (not logged in)
-    
-    if user.role?     :admin
-                        can :manage, :all
+    @user = user || User.new # load user signed in, or create new for guest
 
-    elsif user.role? :uploader
-                        can :read, :all
-                        cannot :manage, :all
-                        can :create, [Photo]
-                        can :update, Photo do |p|
-                          p.try(:user) == user
-                        end
-                        can :destroy, Photo do |p|
-                          p.try(:user) == user
-                        end
-                        can :show, [Photo]
-                        can :front, Content
-    
-    elsif user.role? :author
-                        can :read, :all
-                        cannot :manage, :all
-                        can :create, [Post, Comment]
-                        can :update, Post do |p|
-                          p.try(:user) == user
-                        end
-                        can :destroy, Post do |p|
-                          p.try(:user) == user
-                        end
-                        can :update, Comment do |c|
-                          c.try(:user) == user
-                        end
-                        can :destroy, Comment do |c|
-                          c.try(:user) == user
-                        end
-                        can [:show, :publish], [Post]
-                        can :front, Content
-    
-    elsif user.role? :commenter
-                        can :read, :all
-                        cannot :manage, :all
-                        can :create, [Comment]
-                        can :update, Comment do |c|
-                          c.try(:user) == user
-                        end
-                        can :destroy, Comment do |c|
-                          c.try(:user) == user
-                        end
-                        can :show, [Post]
-                        can :front, Content
-    
-    else              # guest
-                        cannot :manage, :all
-                        can [:show, :index], Post 
-                        can [:show, :index], Photo
-                        can :front, Content
+    @user.roles.each { |role| send role.name }
+
+    if @user.roles.size == 0  # for guests without roles
+      can :read, [Content, User, Post, Photo, Comment]
+      can [:front], Content
     end
   end
+
+  def nobody
+    can :read, [Content, User, Post, Photo, Comment]
+    can [:front], Content
+    can :create, Post
+    can [:update, :publish, :destroy], Post, :user_id => @user.id
+  end
+
+  def commenter
+    can :create, Comment
+    can [:update, :destroy], Comment, :user_id => @user.id
+  end
+
+  def author
+    can :create, Post
+    can [:update, :publish, :destroy], Post, :user_id => @user.id
+  end
+
+  def uploader
+    can :create, Photo
+    can [:update, :destroy], Photo, :user_id => @user.id
+  end
+
+  def admin
+    can :manage, :all # the usual update/destroy, but for any model, not just those owned by user
+    can [:create, :update, :destroy], Content
+    can [:create, :update, :destroy], User
+    can :manage, Role
+  end
+
 end

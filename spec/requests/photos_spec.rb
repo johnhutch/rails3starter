@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Photos" do
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) {FactoryGirl.create(:nobody)}
   let(:admin) {FactoryGirl.create(:admin)}
   let(:author) {FactoryGirl.create(:author)}
   let(:uploader) {FactoryGirl.create(:uploader)}

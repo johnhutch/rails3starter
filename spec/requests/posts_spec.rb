@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Posts" do
   let(:author) {FactoryGirl.create(:author)}
   let(:author2) {FactoryGirl.create(:author)}
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) {FactoryGirl.create(:nobody)}
   let(:admin) {FactoryGirl.create(:admin)}
   let(:uploader) {FactoryGirl.create(:uploader)}
   let(:post) { FactoryGirl.create(:post, user: author) }

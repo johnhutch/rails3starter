@@ -7,6 +7,7 @@ class AddNameToUser < ActiveRecord::Migration
     uploader_role =     Role.create(:name => "uploader")
     author_role =    Role.create(:name => "author")
     commenter_role =  Role.create(:name => "commenter")
+    nobody_role =  Role.create(:name => "nobody")
     
     # Create default admin users
     user = User.create do |u|
@@ -20,6 +21,7 @@ class AddNameToUser < ActiveRecord::Migration
     user.roles << author_role
     user.roles << uploader_role
     user.roles << commenter_role
+    user.roles << nobody_role
   end
 
   def self.down

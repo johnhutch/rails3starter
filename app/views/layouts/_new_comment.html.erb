@@ -6,12 +6,12 @@
 	<% end %>
 <% else %>
   <% if user_signed_in? %>
-    <p>Commenting is turned off.</p>
-  <% else %>
-	<h4>You must be logged in to comment</h4>
+    <h4>You must be logged in to comment</h4>
     <%= link_to "Sign in", new_user_session_path %>
-	or 
+    or
     <%= link_to 'sign up', new_user_registration_path %> to comment.</p>
+  <% else %>
+    <p>Commenting is turned off.</p>
   <% end %>
 <% end %>
 

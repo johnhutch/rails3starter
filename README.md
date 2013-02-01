@@ -33,7 +33,7 @@ TO DO
 
         scope :published, -> {where(:published => true) }
 
-4. Create site activity widget: P
+4. Create site activity widget:
 
         Post.includes(:comments).where("comments.create_at > ?", …) 
 

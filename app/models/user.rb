@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :photos
 
+    after_create :set_initial_roles
+
     # Include default devise modules. Others available are:
     # :token_authenticatable, :lockable, :timeoutable and :activatable
     devise :database_authenticatable, :registerable, :omniauthable,
@@ -48,5 +50,13 @@ class User < ActiveRecord::Base
         else
             super
         end
+    end
+
+    private
+    def set_initial_roles
+        self.roles << Role.find_by_name("nobody")
+        self.roles << Role.find_by_name("commenter")
+        self.roles << Role.find_by_name("author")
+        self.roles << Role.find_by_name("uploader")
     end
 end
