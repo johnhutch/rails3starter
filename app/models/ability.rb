@@ -15,8 +15,6 @@ class Ability
   def nobody
     can :read, [Content, User, Post, Photo, Comment]
     can [:front], Content
-    can :create, Post
-    can [:update, :publish, :destroy], Post, :user_id => @user.id
   end
 
   def commenter
