@@ -3,9 +3,11 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.11'
 
 group :assets do
-gem 'sass-rails',   '~> 3.2.6'
-gem 'coffee-rails', '~> 3.2.2'
-gem 'uglifier', '>= 1.3.0'
+  gem 'sass-rails',   '~> 3.2.6'
+  gem 'compass-rails'
+  gem 'compass-h5bp'
+  gem 'coffee-rails', '~> 3.2.2'
+  gem 'uglifier', '>= 1.3.0'
 end
 
 gem 'jquery-rails', '~> 2.0.2'
@@ -29,7 +31,8 @@ gem 'stamp'
 group :development, :test do
     gem 'sqlite3'
     gem 'rspec-rails'
-    gem "letter_opener"
+    gem 'letter_opener'
+    gem 'thin'
 end
 
 group :test do

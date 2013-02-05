@@ -1,25 +1,13 @@
-@mixin border-box {
-    -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -box-sizing: border-box;
-}
+$default-border-radius: 5px; 
 
-@mixin text-shadow($shadows) {
-    -webkit-text-shadow: $shadows; -moz-text-shadow: $shadows; text-shadow: $shadows;
-}
-$light_letterpress: 0 2px 3px #fff;
+$light-letterpress-textshadow: 0 2px 3px #fff;
 
-@mixin border-radius($params) {
-    -webkit-border-radius: $params; -moz-border-radius: $params; border-radius: $params;
-}
-
-@mixin box-shadow($shadows) {
-    -webkit-box-shadow: $shadows; -moz-box-shadow: $shadows; box-shadow: $shadows;
-}
-$dark_boxshadow: 0px 2px 4px #333;
-$light_boxshadow: 0px 2px 4px #ccc;
-$under_shadow: 0px 8px 6px -6px #999;
+$dark_boxshadow: #333 0px 2px 4px;
+$light_boxshadow: #ccc 0px 2px 4px;
+$under_boxshadow: #999 0px 8px 6px -6px;
 
 body { background: #f6f1ea;  color: #444440; }
-#container { position: relative; background-color: #fdfdfc; padding: 20px; @include border-box; border: 1px solid #aaa; }
+#container { position: relative; background-color: #fdfdfc; padding: 20px; @include box-sizing(border-box); border: 1px solid #aaa; }
 h1, h2, h3, h4, h5, h6 {color: #999992;}
 
 #notice { color: green; }
@@ -33,12 +21,12 @@ h1, h2, h3, h4, h5, h6 {color: #999992;}
 form { margin-bottom: 1em;
     .field {margin: 1em 0;
         label {font-weight: bold; font-size: 1.2em; color: #777;}
-        input, textarea { width: 100%; padding: .4em .4em .2em .4em; @include border-box; font-size: 1.1em}
+        input, textarea { width: 100%; padding: .4em .4em .2em .4em; @include box-sizing(border-box); font-size: 1.1em}
     }
 }
 
-header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 44px; @include box-shadow($under_shadow);
-    h1 { @include text-shadow($light_letterpress); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
+header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 3em; @include box-shadow($under_boxshadow);
+    h1 { @include text-shadow($light-letterpress-textshadow); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
         a { color: #bbb; text-decoration: none; 
             &:hover { color: #ddd; }
             &:visited { color: #bbb; }
@@ -49,7 +37,7 @@ header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-b
 header nav {float: right; margin-right: 5%;
     ul {list-style-type: none; margin: 0; padding: 0; 
         li {margin: 0; padding: 0; float: left;
-            a {display: block; padding: 1.1em 1em 14px 1em; text-decoration: none; color: #999; 
+            a {display: block; padding: 1em 1em 1em 1em; text-decoration: none; color: #999; 
                 &:hover {background-color: #555; color: #aaa}
                 &:visited {color: #999; }
             }
@@ -57,7 +45,7 @@ header nav {float: right; margin-right: 5%;
         }
     }
     .dropdown {position: relative; z-index: 200;
-        ul { position:absolute; top:44px; left:0; display:none; width:150px; list-style-type:none; z-index:200; background-color: white; @include box-shadow($under_shadow); border: 1px solid #aaa;
+        ul { position:absolute; top:44px; left:0; display:none; width:150px; list-style-type:none; z-index:200; background-color: white; @include box-shadow($under_boxshadow); border: 1px solid #aaa;
             li {clear: both; float: none;}
             a {display: block; padding: 5px; text-decoration: none;}
         }
@@ -69,9 +57,9 @@ header nav {float: right; margin-right: 5%;
 /*-----------------------------*/
 
 /*** authentications ***/
-.authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius(8px); 
+.authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius; 
     .remove { text-decoration: none; position: absolute; top: 3px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
-        &:hover { color: #FFF; background-color: #777; @include border-radius(8px); }
+        &:hover { color: #FFF; background-color: #777; @include border-radius; }
     }
     img { float: left; }
     .provider, .uid { margin-left: 38px; margin-right: 20px; }
