@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   
   attr_accessible :title, :body, :photos_attributes
 
+  scope :is_published, lambda{ |published| where(published: published) unless published.nil? }
+
   def publish_me
     self.published = true
     self.published_at = Time.now
