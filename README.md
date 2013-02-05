@@ -24,16 +24,11 @@ Things to do when launching a new site with Tinder
 TO DO
 =====
 
-1. Figure out why js/css assets disappear after first load or first test
-2. Add bootstrap or helium
+1. Adjust SUSY responsive grid (note sign-in columns need to unfloat at small screen sizes)
+2. Fix user account deletion to also delete authentication (and thus allow them to re-sign up with the same auth without the serialize error)
 3. Add railscast's jquery batch image uploader
 4. Create admin page
-5. Change find_or_create_by… to where(…).first_or_create
-6. Change scopes to lamda scopes: 
-
-        scope :published, -> {where(:published => true) }
-
-4. Create site activity widget:
+5. Create site activity widget:
 
         Post.includes(:comments).where("comments.create_at > ?", …) 
 
