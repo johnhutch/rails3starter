@@ -61,8 +61,8 @@ header nav {float: right; margin-right: 5%;
 
 /****** Sign up / Sign in ******/
 /*-----------------------------*/
-section#sign_up { @include span-columns(6,12); }
-section#sign_in { @include span-columns(6 omega,12); }
+section#sign_up { @include span-columns(6); }
+section#sign_in { @include span-columns(6 omega); }
 
 .authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius; 
     .remove { text-decoration: none; position: absolute; top: 3px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
