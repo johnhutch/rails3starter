@@ -1,13 +1,19 @@
+// SUSY grid settings
+@include border-box-sizing;
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width; 
+
+// Compass & Theme variables
 $default-border-radius: 5px; 
-
 $light-letterpress-textshadow: 0 2px 3px #fff;
-
 $dark_boxshadow: #333 0px 2px 4px;
 $light_boxshadow: #ccc 0px 2px 4px;
 $under_boxshadow: #999 0px 8px 6px -6px;
 
 body { background: #f6f1ea;  color: #444440; }
-#container { position: relative; background-color: #fdfdfc; padding: 20px; @include box-sizing(border-box); border: 1px solid #aaa; }
+#container { position: relative; background-color: #fdfdfc; padding-top: $grid-padding; padding-bottom: $grid-padding; border: 1px solid #aaa; @include container; }
 h1, h2, h3, h4, h5, h6 {color: #999992;}
 
 #notice { color: green; }
@@ -21,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {color: #999992;}
 form { margin-bottom: 1em;
     .field {margin: 1em 0;
         label {font-weight: bold; font-size: 1.2em; color: #777;}
-        input, textarea { width: 100%; padding: .4em .4em .2em .4em; @include box-sizing(border-box); font-size: 1.1em}
+        input, textarea { width: 100%; padding: .4em .4em .2em .4em; font-size: 1.1em}
     }
 }
 
@@ -55,8 +61,9 @@ header nav {float: right; margin-right: 5%;
 
 /****** Sign up / Sign in ******/
 /*-----------------------------*/
+section#sign_up { @include span-columns(6,12); }
+section#sign_in { @include span-columns(6 omega,12); }
 
-/*** authentications ***/
 .authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius; 
     .remove { text-decoration: none; position: absolute; top: 3px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
         &:hover { color: #FFF; background-color: #777; @include border-radius; }
@@ -74,4 +81,22 @@ header nav {float: right; margin-right: 5%;
 form .field label {display: block;
     .field em {display: block; font-size:.9em; color: #666}
     .checkbox label, form .radio label {display: inline;}
+}
+
+
+/****** MEDIA QUERIES ********/
+/*---------------------------*/
+
+@media only screen and (min-width: 320px) {
+  header h1 {float: left; margin-left: 5%; position: static; margin-top: 6px;}
+}
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+  header h1 {position: absolute; float: none; margin-left: 0; margin-top: 0}
+}
+
+@media only screen and (min-width: 1024px) {
 }
