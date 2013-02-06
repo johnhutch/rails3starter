@@ -6,15 +6,13 @@
 
 <section id="blog" class="blog">
   <h2>Posts</h2>
-  <% if Post.all.count > 0 %>
-    <% for post in Post.all do %>
-      <article id="post_#{post.id}" class="post">
-        <h3><%= post.title %></h3>
-        <%= markdown post.body %>
-        <p class="readmore"><%= link_to 'Read More', post %></p>
-      </article>
-    <% end %>
-  <% else %>
-    <p>No one has posted anything yet.</p>
+  <% @posts.each do |post| %>
+    <article id="post_#{post.id}" class="post">
+      <h3><%= post.title %></h3>
+      <%= markdown post.body %>
+      <p class="readmore"><%= link_to 'Read More', post %></p>
+    </article>
   <% end %>
+
+  <%= "<p>No one has posted anything yet.</p>".html_safe unless @posts.present? %></p>
 </section>

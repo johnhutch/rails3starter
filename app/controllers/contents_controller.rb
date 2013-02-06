@@ -2,6 +2,7 @@ class ContentsController < ApplicationController
   load_and_authorize_resource
 
   def front
+    @posts = Post.is_published(true)
   end
   
   def contact
