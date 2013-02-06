@@ -1,13 +1,20 @@
-<h2>This is the front page</h2>
+<%=
+  readme = File.open(Rails.root + "README.md")
+  (render :text => markdown(readme.read)).html_safe
+%>
 
-<%= Settings.front_words %>
 
 <section id="blog" class="blog">
-  <% for post in Post.all do %>
-    <article id="post_#{post.id}" class="post">
-      <h3><%= post.title %></h3>
-      <%= markdown post.body %>
-      <p class="readmore"><%= link_to 'Read More', post %></p>
-    </article>
+  <h2>Posts</h2>
+  <% if Post.all.count > 0 %>
+    <% for post in Post.all do %>
+      <article id="post_#{post.id}" class="post">
+        <h3><%= post.title %></h3>
+        <%= markdown post.body %>
+        <p class="readmore"><%= link_to 'Read More', post %></p>
+      </article>
+    <% end %>
+  <% else %>
+    <p>No one has posted anything yet.</p>
   <% end %>
 </section>
