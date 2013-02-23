@@ -32,13 +32,7 @@ Things to do when launching a new site with Tinder
 3. Add railscast's jquery batch image uploader
 4. Create admin page
 5. Create better default capistrano script
-6. Create site activity widget:
-
-        Post.includes(:comments).where("comments.create_at > ?", …) 
-
-    or, in rails 4
-
-        Post.includes(:comments).order("comments.created_at")
+6. Create site activity widget using public_activity gem
 7. Check out cane -- https://github.com/square/cane
 8. Responsive nav
 
