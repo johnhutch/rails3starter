@@ -40,5 +40,6 @@ Things to do when launching a new site with Tinder
 
         Post.includes(:comments).order("comments.created_at")
 7. Check out cane -- https://github.com/square/cane
+8. Responsive nav
 
 * * * 
