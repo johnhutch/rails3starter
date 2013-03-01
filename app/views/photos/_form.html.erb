@@ -12,18 +12,7 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
     <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :caption %>
-    <%= f.text_field :caption %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'data-disable-with' => "Saving..." %>
+    <%= f.file_field :image, multiple: true, name: "photo[image]" %>
   </div>
 <% end %>

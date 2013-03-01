@@ -1,8 +1,15 @@
 <h2>Photos</h2>
 
 <ul id="mosaic">
-<% @photos.each do |photo| %>
-  <li><a href="<%= photo.image.url(:medium) %>"><%= image_tag photo.image.url(:thumb), :alt => photo.title %></a></li>
-<% end %>
+  <%= render @photos %>
 </ul>
 
+<% if can? :create, @photo %>
+  <%= render 'form' %>
+  <script id="template-upload" type="text/x-tmpl">
+    <div class="upload">
+      {%=o.name%}
+      <div class="progress"><div class="bar" style="width: 0%"></div></div>
+    </div>
+  </script>
+<% end %>

@@ -1,0 +1,16 @@
+<li>
+<a href="<%= photo.image.url(:medium) %>">
+    <h4><%= photo.title %></h4>
+    <%= image_tag photo.image.url(:thumb), :alt => photo.title %>
+    <div class="caption"><%= photo.caption %><div>
+  </a>
+  <% if can? :update, photo %>
+    <div class="admin">
+      <%= link_to "Edit", edit_photo_url(photo) %>
+      <% if can? :destroy, photo %>
+        <%= link_to "Delete", photo_url(photo), :method => "delete", :confirm => "Are you sure you want to delete #{photo.title}?" %>
+      <% end %>
+    </div>
+  <% end %>
+</li>
+

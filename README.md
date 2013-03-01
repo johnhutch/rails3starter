@@ -29,7 +29,8 @@ Things to do when launching a new site with Tinder
 
 1. Adjust SUSY responsive grid (note sign-in columns need to unfloat at small screen sizes)
 2. Fix user account deletion to also delete authentication (and thus allow them to re-sign up with the same auth without the serialize error)
-3. Add railscast's jquery batch image uploader
+3. Style image uploader
+3. Fix image tests, write new ones for photos index page
 4. Create admin page
 5. Create better default capistrano script
 6. Create site activity widget using public_activity gem

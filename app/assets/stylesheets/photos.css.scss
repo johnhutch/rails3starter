@@ -1,0 +1,14 @@
+#new_photo {clear: both;}
+
+#mosaic { list-style-type: none; margin: 0; padding: 0;
+  li { border: solid 1px #CCC; padding: 1em; float: left; margin-right: 1.4em; margin-bottom: 1.4em;
+    h4 { padding-top: .5em; text-align: center; font-weight: bold; }
+    .admin { font-size: .9em; text-align: center; color: #777; }
+  }
+}
+
+.upload { border-top: solid 1px #CCC; width: 400px; padding-top: 10px; margin-top: 10px;
+  .progress { margin-top: 8px; border: solid 1px #555; border-radius: 3px; -moz-border-radius: 3px;
+    .bar { height: 10px; background: #3EC144; }
+  }
+}

@@ -9,6 +9,7 @@ group :assets do
   gem 'susy'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '>= 1.3.0'
+  gem 'jquery-fileupload-rails'
 end
 
 gem 'jquery-rails', '~> 2.0.2'

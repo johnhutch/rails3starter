@@ -5,6 +5,7 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    @photo = Photo.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,16 +44,6 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = current_user.photos.create(params[:photo])
-
-    respond_to do |format|
-      if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
-        format.json { render json: @photo, status: :created, location: @photo }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PUT /photos/1

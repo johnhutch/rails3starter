@@ -8,7 +8,7 @@
                 <a href="" id="contribute" class="contribute">Contribute</a> 
                 <ul>
                     <%= link_to "New blog post", new_post_path if current_user.role? :author %>
-                    <%= link_to "Upload a photo", new_post_path if current_user.role? :uploader %>
+                    <%= link_to "Upload a photo", photos_path if current_user.role? :uploader %>
                 </ul>
             </li>
         <% end %>
