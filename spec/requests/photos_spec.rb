@@ -31,17 +31,14 @@ describe "Photos" do
     end
   end
 
-  describe "POST /photos" do
+  describe "POST /photos", :js => true do
     it "should allow an uploader to photo a photo" do
       login(uploader)
 
-      visit new_photo_path
-      fill_in "Title", :with => "A Sample photo title"
-      fill_in "Caption", :with => "this is the photo caption"
+      visit photos_path
       attach_file("Image","#{Rails.root}/spec/samples/hutchhead.png")
-      click_button I18n.t('buttons.create_photo')
-      page.should have_content("A Sample photo title")
-      page.should have_content("this is the photo caption")
+      sleep(1)
+      page.should have_content("Hutchhead")
       page.should have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
       page.should have_content(uploader.name)
     end
@@ -54,7 +51,7 @@ describe "Photos" do
     end
   end
 
-  describe "EDIT /photo/:id" do
+  describe "EDIT /photo/:id", :js => true do
     it "should allow the uploader to edit a photo" do
       login(uploader)
 
@@ -81,7 +78,7 @@ describe "Photos" do
       page.should have_content("You are not authorized")
     end
 
-    it "should allow an admin to edit another photo" do
+    it "should allow an admin to edit another photo", :js => true do
       login(admin)
       
       visit edit_photo_path(photo)

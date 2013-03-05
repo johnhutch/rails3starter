@@ -1,6 +1,35 @@
 <h1>Editing photo</h1>
 
-<%= render 'form' %>
+<%= form_for(@photo, :html => { :multipart => true }) do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :image %>
+    <a href="<%= @photo.image.url(:medium) %>"><%= image_tag @photo.image.url(:thumb) %></a>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('buttons.edit_photo'), 'data-disable-with' => "Saving..." %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @photo %> |
 <%= link_to 'Back', photos_path %>

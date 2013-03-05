@@ -12,6 +12,7 @@ en:
     change_password:        "Change my password"
     create_post:            "Create Post"
     edit_post:              "Update Post"
+    upload_photo:           "Upload Photo"
     create_photo:           "Create Photo"
     edit_photo:             "Update Photo"
     create_comment:         "Post my comment"

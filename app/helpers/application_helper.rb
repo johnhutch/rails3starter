@@ -3,7 +3,7 @@ module ApplicationHelper
   def markdown(text)
       rc = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true, :filter_html => true, :hard_wrap => true)
       #options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-      rc.render(text).html_safe
+      rc.render(text).html_safe unless text.nil?
   end
 
   def notice_block
