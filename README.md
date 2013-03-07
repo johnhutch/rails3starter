@@ -12,7 +12,7 @@ Tinder currently includes:
 * (Soon to be batch) Photo uploading and resizing using Paperclip.
 * Rspec and capybara tests with guard and launchy for on-the-fly testing and debugging
 * formalize UI for better, more consistent form styling.
-* Compass SASS mixins with the normalize, SUSY grids, and HTML5 Boilerplate.
+* Compass SASS mixins with the normalize, SUSY grids, and Twitter Bootstrap
 * modernizr JS library for handling old browsers
 
 Things to do when launching a new site with Tinder
@@ -28,13 +28,14 @@ Things to do when launching a new site with Tinder
 ### TO DO
 
 1. Adjust SUSY responsive grid (note sign-in columns need to unfloat at small screen sizes)
-2. Fix user account deletion to also delete authentication (and thus allow them to re-sign up with the same auth without the serialize error)
-3. Style image uploader
-3. Fix image tests, write new ones for photos index page
-4. Create admin page
-5. Create better default capistrano script
-6. Create site activity widget using public_activity gem
-7. Check out cane -- https://github.com/square/cane
-8. Responsive nav
+2. Adjust Bootstrap nav when in small-screen dropdown mode
+3. Fix user account deletion to also delete authentication (and thus allow them to re-sign up with the same auth without the serialize error)
+4. Fix notification classes (why's it always green?)
+5. Style image uploader
+6. Create admin page
+7. Create better default capistrano script
+8. Create site activity widget using public_activity gem
+9. Check out cane -- https://github.com/square/cane
+
 
 * * * 
