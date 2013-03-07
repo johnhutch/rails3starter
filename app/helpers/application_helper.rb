@@ -6,14 +6,6 @@ module ApplicationHelper
       rc.render(text).html_safe unless text.nil?
   end
 
-  def notice_block
-    %Q(<section id="notice">#{notice}</section>).html_safe if notice
-  end
-
-  def alert_block
-    %Q(<section id="alert">#{alert}</section>).html_safe if alert 
-  end
-
   def parent_url_string
     parent = controller.controller_name.singularize
     comments_path(:parent_type => parent, :parent_id => controller.instance_variable_get("@#{parent}").id)

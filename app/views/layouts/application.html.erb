@@ -37,13 +37,62 @@
 
 <body id="<%= action_name %>" class="<%= controller_name %>">
     <header class="clearfix">
-        <h1><a href="/"><%=t :site_name %></a></h1>
-        <%= render "layouts/nav" %>
+      <nav class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">Tinder</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <% if user_signed_in? && (current_user.role? :admin) %>
+                  <li><%= link_to "User Admin", users_path %></li>
+                <% end %>
+                <% if user_signed_in? && ((current_user.role? :author) || (current_user.role? :uploader)) %>
+                  <li id="actions" class="actions dropdown">
+                    <a href="/contribute" id="contribute" class="contribute dropdown-toggle" data-toggle="dropdown" data-target="#">Contribute</a> 
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dlabel">
+                      <li><%= link_to "New blog post", new_post_path if current_user.role? :author %></li>
+                      <li><%= link_to "Upload a photo", photos_path if current_user.role? :uploader %></li>
+                    </ul>
+                  </li>
+                <% end %>
+                <li id="about" class="about dropdown">
+                  <a href="/about" class="dropdown-toggle" data-toggle="dropdown" data-target-"#">About</a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dlabel">
+                    <li><a href="">Copyright</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Terms and Conditions</a></li>
+                  </ul>
+                </li>
+                <li id="usernav" class="usernav dropdown">
+                  <% if user_signed_in? %>
+                    <%= link_to current_user.name, user_path(current_user), :id => "profile_dropdown", :class => "dropdown-toggle", :data => { :toggle => "dropdown", :target => "#" } %>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dlabel"> 
+                      <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
+                      <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
+                    </ul>
+                  <% else %>
+                    <%= link_to t("links.signup_signin"), new_user_session_path %></li>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
     <div id="container" class="clearfix">
         <div id="main" role="main">
-            <%= notice_block %>
-            <%= alert_block %>
+            <% flash.each do |name, msg| %>
+              <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                <a class="close" data-dismiss="alert">x</a>
+                <%= msg  %>
+              </div>
+            <% end %>
             <%= yield %>
         </div>
     </div> <!--! end of #container -->

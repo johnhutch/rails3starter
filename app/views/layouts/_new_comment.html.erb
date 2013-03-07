@@ -1,7 +1,7 @@
 <% if user_signed_in? && (current_user.role? :commenter) %>
-	<%= form_for Comment.new, :url => parent_url_string do |f| %>
+	<%= simple_form_for Comment.new, :url => parent_url_string do |f| %>
 	    <%= f.label t('labels.post_a_comment') %>
-		<%= f.text_area :body %>
+		<%= f.input :body %>
 		<p><%= f.submit t('buttons.create_comment') %></p>
 	<% end %>
 <% else %>

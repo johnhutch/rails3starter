@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 group :assets do
   gem 'sass-rails',   '~> 3.2.6'
   gem 'compass-rails'
-  gem 'compass-h5bp'
+  gem 'bootstrap-sass'
   gem 'susy'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '>= 1.3.0'
@@ -13,6 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails', '~> 2.0.2'
+gem 'simple_form'
 gem 'mysql2'
 gem 'capistrano'
 gem 'json'
@@ -24,7 +25,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 gem 'redcarpet'
-gem 'formalize-rails'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'rails_config'

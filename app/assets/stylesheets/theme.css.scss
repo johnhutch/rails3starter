@@ -12,7 +12,7 @@ $dark_boxshadow: #333 0px 2px 4px;
 $light_boxshadow: #ccc 0px 2px 4px;
 $under_boxshadow: #999 0px 8px 6px -6px;
 
-body { background: #f6f1ea;  color: #444440; }
+body { background: #f6f1ea;  color: #444440; padding-top: 60px;}
 #container { position: relative; background-color: #fdfdfc; padding-top: $grid-padding; padding-bottom: $grid-padding; border: 1px solid #aaa; @include container; }
 h1, h2, h3, h4, h5, h6 {color: #999992;}
 
@@ -31,42 +31,15 @@ form { margin-bottom: 1em;
     }
 }
 
-header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 3em; @include box-shadow($under_boxshadow);
-    h1 { @include text-shadow($light-letterpress-textshadow); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
-        a { color: #bbb; text-decoration: none; 
-            &:hover { color: #ddd; }
-            &:visited { color: #bbb; }
-        }
-    }
-}
-
-header nav {float: right; margin-right: 5%;
-    ul {list-style-type: none; margin: 0; padding: 0; 
-        li {margin: 0; padding: 0; float: left;
-            a {display: block; padding: 1em 1em 1em 1em; text-decoration: none; color: #999; 
-                &:hover {background-color: #555; color: #aaa}
-                &:visited {color: #999; }
-            }
-            ul {display: none;}
-        }
-    }
-    .dropdown {position: relative; z-index: 200;
-        ul { position:absolute; top:44px; left:0; display:none; width:150px; list-style-type:none; z-index:200; background-color: white; @include box-shadow($under_boxshadow); border: 1px solid #aaa;
-            li {clear: both; float: none;}
-            a {display: block; padding: 5px; text-decoration: none;}
-        }
-    }
-    .hover {display: block !important;}
-}
 
 /****** Sign up / Sign in ******/
 /*-----------------------------*/
 section#sign_up { @include span-columns(6); }
 section#sign_in { @include span-columns(6 omega); }
 
-.authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius; 
+.authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius($default-border-radius); 
     .remove { text-decoration: none; position: absolute; top: 3px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
-        &:hover { color: #FFF; background-color: #777; @include border-radius; }
+        &:hover { color: #FFF; background-color: #777; @include border-radius($default-border-radius); }
     }
     img { float: left; }
     .provider, .uid { margin-left: 38px; margin-right: 20px; }
