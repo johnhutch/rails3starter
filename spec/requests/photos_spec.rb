@@ -37,7 +37,7 @@ describe "Photos" do
 
       visit photos_path
       attach_file("Image","#{Rails.root}/spec/samples/hutchhead.png")
-      sleep(1)
+      sleep(5)
       page.should have_content("Hutchhead")
       page.should have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
       page.should have_content(uploader.name)
