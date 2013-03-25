@@ -26,9 +26,9 @@ Tinder::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
-
-  # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
+  config.sass.debug_info = true
+  config.sass.line_comments = false # source maps don't get output if this is true
   
 # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict

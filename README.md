@@ -31,7 +31,7 @@ Things to do when launching a new site with Tinder
 2. Adjust Bootstrap nav when in small-screen dropdown mode
 3. Fix user account deletion to also delete authentication (and thus allow them to re-sign up with the same auth without the serialize error)
 4. Fix notification classes (why's it always green?)
-5. Style image uploader
+5. Style image uploader using the not-basic version of the plugin (see here: http://blueimp.github.com/jQuery-File-Upload/)
 6. Create admin page
 7. Create better default capistrano script
 8. Create site activity widget using public_activity gem
