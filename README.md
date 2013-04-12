@@ -36,6 +36,7 @@ Things to do when launching a new site with Tinder
 7. Create better default capistrano script
 8. Create site activity widget using public_activity gem
 9. Check out cane -- https://github.com/square/cane
+10. Improve test code quality via guide at http://betterspecs.org
 
 
 * * * 
