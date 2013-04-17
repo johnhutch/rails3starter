@@ -43,7 +43,7 @@ end
 group :test do
     gem 'factory_girl'
     gem 'factory_girl_rails', :require => false
-    gem 'capybara-webkit'
+    gem 'capybara'
     gem 'guard-rspec'
     gem 'launchy'
     gem 'rb-fsevent' # mac-only gem for guard auto-detect. remove if on another OS
