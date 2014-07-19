@@ -1,7 +1,6 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'spork', :cucumber => false, :test_unit => false, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
@@ -9,7 +8,6 @@ guard 'spork', :cucumber => false, :test_unit => false, :rspec_env => { 'RAILS_E
   watch('Gemfile')
   watch('Gemfile.lock')
   watch('spec/spec_helper.rb') { :rspec }
-end
 
 guard 'rspec', :version => 2 do
   watch(%r{^spec/.+_spec\.rb$})

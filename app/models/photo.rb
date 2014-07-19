@@ -6,8 +6,8 @@ class Photo < ActiveRecord::Base
   
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
-  validates_attachment :image, :presence => true,
-    :size => { :in => 1..5000.kilobytes }
+  validates_attachment :image, :presence => true, :size => { :in => 1..5000.kilobytes }
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   def default_name
     self.title ||= File.basename(image.original_filename, '.*').titleize if image

@@ -6,7 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require jquery_nested_form
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl

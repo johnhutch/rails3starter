@@ -6,6 +6,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.6'
   gem 'compass-rails'
   gem 'bootstrap-sass'
+  gem 'autoprefixer-rails'
   gem 'susy'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '>= 1.3.0'
@@ -44,10 +45,11 @@ group :test do
     gem 'factory_girl'
     gem 'factory_girl_rails', :require => false
     gem 'capybara'
+    gem 'selenium-webdriver'
     gem 'guard-rspec'
+    gem 'spring'
+    gem 'guard-spring'
     gem 'launchy'
     gem 'rb-fsevent' # mac-only gem for guard auto-detect. remove if on another OS
     gem 'database_cleaner'
-    gem 'spork', '~> 0.9.0.rc'
-    gem 'guard-spork'
 end
