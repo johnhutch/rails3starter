@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.15'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.6'
@@ -37,6 +37,7 @@ group :development, :test do
     gem 'letter_opener'
     gem 'thin'
     gem 'better_errors'
+    gem 'coderay', '~> 1.0.5' # pinned at 1.0.5 to avoid conflict between better_errors and guard http://stackoverflow.com/questions/19322183/guard-giving-uninitialized-constant-listenturnstile-nameerror-error
     gem 'binding_of_caller'
     gem 'meta_request'
 end
@@ -46,6 +47,7 @@ group :test do
     gem 'factory_girl_rails', :require => false
     gem 'capybara'
     gem 'selenium-webdriver'
+    gem 'guard', '>=2.1.0'
     gem 'guard-rspec'
     gem 'spring'
     gem 'guard-spring'

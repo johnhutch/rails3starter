@@ -1,7 +1,7 @@
 Tinder gets you started. 
 ========================
 
-Current version: Rails 3.2.11 with ruby-1.9.3-p392
+Current version: Rails 3.2.15 with ruby-1.9.3-p392
 
 Tinder currently includes:
 --------------------------
