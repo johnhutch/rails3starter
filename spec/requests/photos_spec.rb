@@ -18,16 +18,16 @@ describe "Photos" do
       photo3
 
       visit photos_path
-      page.should have_xpath("//img[@alt=\"#{photo.title}\" and @src=\"#{photo.image.url(:thumb)}\"]")
-      page.should have_xpath("//img[@alt=\"#{photo2.title}\" and @src=\"#{photo2.image.url(:thumb)}\"]")
-      page.should have_xpath("//img[@alt=\"#{photo3.title}\" and @src=\"#{photo3.image.url(:thumb)}\"]")
+      expect(page).to have_xpath("//img[@alt=\"#{photo.title}\" and @src=\"#{photo.image.url(:thumb)}\"]")
+      expect(page).to have_xpath("//img[@alt=\"#{photo2.title}\" and @src=\"#{photo2.image.url(:thumb)}\"]")
+      expect(page).to have_xpath("//img[@alt=\"#{photo3.title}\" and @src=\"#{photo3.image.url(:thumb)}\"]")
     end
   end
   
   describe "GET /photos/:id" do
     it "displays a single photo" do
       visit photo_path(photo)
-      page.should have_xpath("//img[@src=\"#{photo.image.url(:thumb)}\"]")
+      expect(page).to have_xpath("//img[@src=\"#{photo.image.url(:thumb)}\"]")
     end
   end
 
@@ -38,16 +38,16 @@ describe "Photos" do
       visit photos_path
       attach_file("Image","#{Rails.root}/spec/samples/hutchhead.png")
       sleep(5)
-      page.should have_content("Hutchhead")
-      page.should have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
-      page.should have_content(uploader.name)
+      expect(page).to have_content("Hutchhead")
+      expect(page).to have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
+      expect(page).to have_content(uploader.name)
     end
     
     it "should not allow a vanilla user to photo a photo" do
       login(user)
       
       visit new_photo_path
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
   end
 
@@ -59,23 +59,23 @@ describe "Photos" do
       fill_in "Title", :with => "An edited photo title"
       attach_file("Image","#{Rails.root}/spec/samples/mark.jpg")
       click_button I18n.t('buttons.edit_photo')
-      page.should have_content( I18n.t('flash.photo_updated'))
-      page.should have_content('An edited photo title')
-      page.should have_xpath("//img[contains(@src,\"mark.jpg\")]") 
+      expect(page).to have_content( I18n.t('flash.photo_updated'))
+      expect(page).to have_content('An edited photo title')
+      expect(page).to have_xpath("//img[contains(@src,\"mark.jpg\")]") 
     end
     
     it "should not allow a vanilla user to edit a photo" do
       login(user)
       
       visit edit_photo_path(photo)
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
     
     it "should not allow a different uploader to edit a photo" do
       login(uploader2)
       
       visit edit_photo_path(photo)
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
 
     it "should allow an admin to edit another photo", :js => true do
@@ -85,9 +85,9 @@ describe "Photos" do
       fill_in "Title", :with => "An edited photo title"
       attach_file("Image","#{Rails.root}/spec/samples/mark.jpg")
       click_button I18n.t('buttons.edit_photo')
-      page.should have_content( I18n.t('flash.photo_updated'))
-      page.should have_content('An edited photo title')
-      page.should have_xpath("//img[contains(@src,\"mark.jpg\")]") 
+      expect(page).to have_content( I18n.t('flash.photo_updated'))
+      expect(page).to have_content('An edited photo title')
+      expect(page).to have_xpath("//img[contains(@src,\"mark.jpg\")]") 
     end
   end
   
@@ -96,11 +96,11 @@ describe "Photos" do
 
   describe "destroy abilities" do
     it "should allow the uploader to destroy photo" do
-      auth_ability.should be_able_to(:destroy, photo)
+      expect(auth_ability).to be_able_to(:destroy, photo)
     end
 
     it "should now allow another uploader to destroy photo" do
-      auth2_ability.should_not be_able_to(:destroy, photo)
+      expect(auth2_ability).not_to be_able_to(:destroy, photo)
     end
   end
 end

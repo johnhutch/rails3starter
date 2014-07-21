@@ -18,10 +18,10 @@ describe "Posts" do
       post3
 
       visit posts_path
-      page.should have_content(post.title)
-      page.should have_content(post2.title)
-      page.should have_content(post3.title)
-      page.should have_content(post2.body)
+      expect(page).to have_content(post.title)
+      expect(page).to have_content(post2.title)
+      expect(page).to have_content(post3.title)
+      expect(page).to have_content(post2.body)
     end
   end
 
@@ -29,8 +29,8 @@ describe "Posts" do
     it "displays a single post" do
 
       visit post_path(post)
-      page.should have_content(post.title)
-      page.should have_content(post.body)
+      expect(page).to have_content(post.title)
+      expect(page).to have_content(post.body)
     end
   end
 
@@ -46,10 +46,10 @@ describe "Posts" do
       fill_in "Photo Caption", :with => "this is the photo caption"
       attach_file("File Upload","#{Rails.root}/spec/samples/hutchhead.png")
       click_button I18n.t('buttons.create_post')
-      page.should have_content("A Sample post title")
-      page.should have_content("A sample photo title")
-      page.should have_content("this is the photo caption")
-      page.should have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
+      expect(page).to have_content("A Sample post title")
+      expect(page).to have_content("A sample photo title")
+      expect(page).to have_content("this is the photo caption")
+      expect(page).to have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
     end
 
     it "should indicate its published date after post is published" do
@@ -58,7 +58,7 @@ describe "Posts" do
       post.publish_me
 
       visit publish_post_path(post)
-      page.should have_content("published on")
+      expect(page).to have_content("published on")
     end
 
     it "should default to not being published" do
@@ -66,7 +66,7 @@ describe "Posts" do
       post
 
       visit post_path(post)
-      page.should have_content("currently unpublished")
+      expect(page).to have_content("currently unpublished")
     end
     
     it "should fail validation when the title and body are not filled out" do
@@ -74,15 +74,15 @@ describe "Posts" do
 
       visit new_post_path
       click_button I18n.t('buttons.create_post')
-      page.should have_content("Title can't be blank")
-      page.should have_content("Body can't be blank")
+      expect(page).to have_content("Title can't be blank")
+      expect(page).to have_content("Body can't be blank")
     end
 
     it "should not allow a vanilla user to post a post" do
       login(user)
       
       visit new_post_path
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
   end
 
@@ -94,22 +94,22 @@ describe "Posts" do
       visit edit_post_path(post)
       fill_in "Title", :with => "An edited post title"
       click_button I18n.t('buttons.edit_post')
-      page.should have_content( I18n.t('flash.post_updated'))
-      page.should have_content('An edited post title')
+      expect(page).to have_content( I18n.t('flash.post_updated'))
+      expect(page).to have_content('An edited post title')
     end
     
     it "should not allow a vanilla user to edit a post" do
       login(user)
       
       visit edit_post_path(post)
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
     
     it "should not allow a different author to edit a post" do
       login(author2)
       
       visit edit_post_path(post)
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
 
     it "should allow an admin to edit another post" do
@@ -118,8 +118,8 @@ describe "Posts" do
       visit edit_post_path(post)
       fill_in "Title", :with => "An edited post title"
       click_button I18n.t('buttons.edit_post')
-      page.should have_content( I18n.t('flash.post_updated'))
-      page.should have_content('An edited post title')
+      expect(page).to have_content( I18n.t('flash.post_updated'))
+      expect(page).to have_content('An edited post title')
     end
   end
   
@@ -128,11 +128,11 @@ describe "Posts" do
 
   describe "destroy abilities" do
     it "should allow the author to destroy post" do
-      auth_ability.should be_able_to(:destroy, post)
+      expect(auth_ability).to be_able_to(:destroy, post)
     end
 
     it "should now allow another author to destroy post" do
-      auth2_ability.should_not be_able_to(:destroy, post)
+      expect(auth2_ability).not_to be_able_to(:destroy, post)
     end
   end
 end

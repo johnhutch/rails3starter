@@ -1,7 +1,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'capybara/rspec'
 require 'cancan/matchers'
 require "paperclip/matchers" 
@@ -49,7 +48,7 @@ def login(user)
   fill_in "sign_in_email", :with => user.email
   fill_in "sign_in_password", :with => user.password
   click_button "Sign in"
-  page.should have_content(I18n.t('flash.signed_in'))
+  expect(page).to have_content(I18n.t('flash.signed_in'))
 end
 
 #Spork.each_run do

@@ -7,9 +7,9 @@ describe "PasswordResets" do
     click_link I18n.t('links.forgot_password')
     fill_in "Email", :with => user.email
     click_button I18n.t('buttons.reset_password')
-    current_path.should eq(new_user_session_path)
-    page.should have_content( I18n.t('devise.passwords.send_instructions') )
-    last_email.to.should include(user.email)
+    expect(current_path).to eq(new_user_session_path)
+    expect(page).to have_content( I18n.t('devise.passwords.send_instructions') )
+    expect(last_email.to).to include(user.email)
   end
 
   it "does not email invalid user when requesting password reset" do
@@ -17,8 +17,8 @@ describe "PasswordResets" do
     click_link I18n.t('links.forgot_password')
     fill_in "Email", :with => "nobody@example.com"
     click_button I18n.t('buttons.reset_password')
-    page.should have_content( I18n.t('errors.messages.not_found') )
-    last_email.should be_nil
+    expect(page).to have_content( I18n.t('errors.messages.not_found') )
+    expect(last_email).to be_nil
   end
 
   it "throws an error when reset passwords do not match" do
@@ -27,7 +27,7 @@ describe "PasswordResets" do
     fill_in "New password", :with => "foobar"
     fill_in "Confirm new password", :with => "foobarrrr"
     click_button I18n.t('buttons.change_password')
-    page.should have_content("Password doesn't match confirmation")
+    expect(page).to have_content("Password doesn't match confirmation")
   end
 
   it "updates the user password when confirmation matches" do
@@ -36,7 +36,7 @@ describe "PasswordResets" do
     fill_in "New password", :with => "foobar"
     fill_in "Confirm new password", :with => "foobar"
     click_button I18n.t('buttons.change_password')
-    page.should have_content(I18n.t('devise.passwords.updated'))
+    expect(page).to have_content(I18n.t('devise.passwords.updated'))
   end
 
   it "reports when password token has expired" do
@@ -45,7 +45,7 @@ describe "PasswordResets" do
     fill_in "New password", :with => "foobar"
     fill_in "Confirm new password", :with => "foobar"
     click_button I18n.t('buttons.change_password')
-    page.should have_content( I18n.t('errors.messages.expired') )
+    expect(page).to have_content( I18n.t('errors.messages.expired') )
   end
 
   it "raises record not found when password token is invalid" do
@@ -53,6 +53,6 @@ describe "PasswordResets" do
     fill_in "New password", :with => "foobar"
     fill_in "Confirm new password", :with => "foobar"
     click_button I18n.t('buttons.change_password')
-    page.should have_content('Reset password token is invalid') 
+    expect(page).to have_content('Reset password token is invalid') 
   end
 end

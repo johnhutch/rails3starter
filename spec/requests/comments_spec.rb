@@ -18,9 +18,9 @@ describe "Comments" do
       comment3
 
       visit post_path(post)
-      page.should have_content(comment1.body)
-      page.should have_content(comment2.body)
-      page.should have_content(comment3.body)
+      expect(page).to have_content(comment1.body)
+      expect(page).to have_content(comment2.body)
+      expect(page).to have_content(comment3.body)
     end
   end
 
@@ -31,7 +31,7 @@ describe "Comments" do
 
       fill_in "comment_body", :with => "A sample comment body."
       click_button I18n.t('buttons.create_comment')
-      page.should have_content("A sample comment body")
+      expect(page).to have_content("A sample comment body")
     end
     
     it "should fail validation when the body is not filled out" do
@@ -40,14 +40,14 @@ describe "Comments" do
 
       click_button I18n.t('buttons.create_comment')
 
-      page.should have_content(I18n.t('flash.comment_problem'))
+      expect(page).to have_content(I18n.t('flash.comment_problem'))
     end
 
     it "should not allow a vanilla user to post a comment" do
       login(user)
       visit post_path(post)
       
-      page.should_not have_content(I18n.t('labels.post_a_comment'))
+      expect(page).not_to have_content(I18n.t('labels.post_a_comment'))
     end
   end
 
@@ -60,11 +60,11 @@ describe "Comments" do
   
       click_link('edit_comment_' + comment1.id.to_s)
 
-      page.should_not have_content("You are not authorized")
+      expect(page).not_to have_content("You are not authorized")
       fill_in "comment_body", :with => "An edited comment body."
       click_button I18n.t('buttons.edit_comment')
-      page.should have_content( I18n.t('flash.comment_updated'))
-      page.should have_content('An edited comment body.')
+      expect(page).to have_content( I18n.t('flash.comment_updated'))
+      expect(page).to have_content('An edited comment body.')
     end
     
     it "should not allow a vanilla user to edit a post" do
@@ -72,25 +72,25 @@ describe "Comments" do
       comment1
       
       visit edit_comment_path(comment1)
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
     
     it "should not allow a different author to edit a post" do
       login(commenter)
       
       visit edit_comment_path(comment1)
-      page.should have_content("You are not authorized")
+      expect(page).to have_content("You are not authorized")
     end
 
     it "should allow an admin to edit another post" do
       login(admin)
       
       visit edit_comment_path(comment1)
-      page.should_not have_content("You are not authorized")
+      expect(page).not_to have_content("You are not authorized")
       fill_in "comment_body", :with => "An edited comment body."
       click_button I18n.t('buttons.edit_comment')
-      page.should have_content( I18n.t('flash.comment_updated'))
-      page.should have_content('An edited comment body')
+      expect(page).to have_content( I18n.t('flash.comment_updated'))
+      expect(page).to have_content('An edited comment body')
     end
   end
   
@@ -99,11 +99,11 @@ describe "Comments" do
 
   describe "destroy abilities" do
     it "should allow the author to destroy post" do
-      auth_ability.should be_able_to(:destroy, comment1)
+      expect(auth_ability).to be_able_to(:destroy, comment1)
     end
 
     it "should not allow another author to destroy post" do
-      auth2_ability.should_not be_able_to(:destroy, comment1)
+      expect(auth2_ability).not_to be_able_to(:destroy, comment1)
     end
   end
 end
