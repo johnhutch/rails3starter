@@ -20,7 +20,7 @@ gem 'capistrano'
 gem 'json'
 gem 'therubyracer' # added to avoid javascript errors on deploy
 
-gem 'cancan', '~> 1.6.8'
+gem 'cancancan', '~> 1.7'
 gem 'devise', '~> 2.2.3'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'

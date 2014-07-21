@@ -60,7 +60,7 @@ GEM
       sass (~> 3.2)
     builder (3.0.4)
     callsite (0.0.11)
-    cancan (1.6.10)
+    cancancan (1.9.0)
     capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
@@ -168,7 +168,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
-    nokogiri (1.6.2.1)
+    nokogiri (1.6.3)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
     oauth2 (1.0.0)
@@ -314,7 +314,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
-  cancan (~> 1.6.8)
+  cancancan (~> 1.7)
   capistrano
   capybara
   coderay (~> 1.0.5)
